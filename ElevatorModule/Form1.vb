@@ -16,16 +16,10 @@ Public Class EscalatorSyst
     Private client As IFirebaseClient
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         timer.Enabled = True
-
-
         Try
             client = New FireSharp.FirebaseClient(fcon)
             stopEscalator.Visible = True
             startEscalator.Visible = False
-
-
-
-
         Catch
 
             MessageBox.Show("there was a problem in the internet connection")
