@@ -16,6 +16,8 @@ Public Class EscalatorSyst
     Private client As IFirebaseClient
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         timer.Enabled = True
+
+
         Try
             client = New FireSharp.FirebaseClient(fcon)
             stopEscalator.Visible = True
@@ -30,85 +32,81 @@ Public Class EscalatorSyst
 
 
 
-        'Dim ipAny As System.Net.IPEndPoint
-        'Dim res = client.Get("PI_05_20200818/21/1910/sound")
-        Dim res = client.Get("PI_05_" + fnc_Get_NTP.ToString("yyyyMMdd/HH/mmss") + "/ultra")
 
+        Dim res = client.Get("PI_05_" + fnc_Get_NTP.ToString("yyyyMMdd/HH/mmss") + "/ultra2")
 
-        'Dim res = client.Get("PI_05_" + tarikh.ToString("yyMMd/HH/mmss") + "/sound")
-
-        'lblName.Text = res.ToJson
-        'Try
-        '        Dim sec As Integer = Convert.ToInt32(saat)
-        '        'saat = Integer.Parse(saat.ToDate("ss"))
-        '        'If Integer.TryParse(saat.ToString("ss"), myTime) Mod 10 Is 0 Then
-        '        If (sec) Mod 10 = 0 Then
-        '            
-        '        End If
-        '    Catch ex As Exception
-
-        '    End Try
-
-
-
-        'End If
 
 
         Try
-            Dim tempUltra = New With {Key .Body = ""}
-            'Dim ult = JsonConvert.DeserializeAnonymousType(res.ToJson, tempUltra)
-            Dim Body As String
+                Dim tempUltra = New With {Key .Body = ""}
 
-            'If res.Body.Length <= 4 Then
-            '    Body = res.Body.Substring(1, 1)
-            'Else
-            '    Body = res.Body.Substring(1, 2)
-            'End If
-            Body = res.Body.Substring(1, 3)
-            Dim ultra As Double = Convert.ToInt32(Body)
-            lblName.Text = "Ultra: " + Body.ToString
-            If ultra > 199 Then
-                stopEscalator.Visible = True
-                startEscalator.Visible = False
-                Dim buzz = client.Set("PI_05_CONTROL/buzzer", "0")
-                Dim tempBuzz = New With {Key .Body = ""}
-                'Dim buz = JsonConvert.DeserializeAnonymousType(buzz.ToJson, tempBuzz)
+                Dim Body As String
+
+                If res.Body.Length = 5 Then
+                    Body = res.Body.Substring(1, 1)
+                    Dim ultra As Integer = Convert.ToInt32(Body)
+                    lblName.Text = "Ultra: " + Body.ToString
+                    If ultra > 30.0 Then
+                        stopEscalator.Visible = True
+                        startEscalator.Visible = False
+                        Dim buzz = client.Set("PI_05_CONTROL/buzzer", "0")
 
 
-                Body = buzz.Body.Substring(1, 1)
+                        Body = buzz.Body.Substring(1, 1)
 
-                Dim buzzer As Integer = Convert.ToInt32(Body)
-                lblBuzzer.Text = "Buzzer: " + Body.ToString
+                        Dim buzzer As Integer = Convert.ToInt32(Body)
+                        lblBuzzer.Text = "Buzzer: " + Body.ToString
+                    Else
+                        stopEscalator.Visible = False
+                        startEscalator.Visible = True
+                        Dim buzz = client.Set("PI_05_CONTROL/buzzer", "1")
 
-            Else
-                stopEscalator.Visible = False
-                startEscalator.Visible = True
-                Dim buzz = client.Set("PI_05_CONTROL/buzzer", "1")
-                Dim tempBuzz = New With {Key .Body = ""}
-                'Dim buz = JsonConvert.DeserializeAnonymousType(buzz.ToJson, tempBuzz)
+                    Body = buzz.Body.Substring(1, 1)
+                        Dim buzzer As Integer = Convert.ToInt32(Body)
+                        lblBuzzer.Text = "Buzzer: " + Body.ToString
+                    End If
 
+                Else
 
-                Body = buzz.Body.Substring(1, 1)
-
-                Dim buzzer As Integer = Convert.ToInt32(Body)
-                lblBuzzer.Text = "Buzzer: " + Body.ToString
-            End If
-        Catch ex As Exception
-
-        End Try
-
-
-
-
+                    Body = res.Body.Substring(1, 2)
+                    Dim ultra As Integer = Convert.ToInt32(Body)
+                    lblName.Text = "Ultra: " + Body.ToString
+                    If ultra > 30.0 Then
+                        stopEscalator.Visible = True
+                        startEscalator.Visible = False
+                        Dim buzz = client.Set("PI_05_CONTROL/buzzer", "0")
 
 
+                        Body = buzz.Body.Substring(1, 1)
+
+                        Dim buzzer As Integer = Convert.ToInt32(Body)
+                        lblBuzzer.Text = "Buzzer: " + Body.ToString
+                    Else
+                        stopEscalator.Visible = False
+                        startEscalator.Visible = True
+                        Dim buzz = client.Set("PI_05_CONTROL/buzzer", "1")
+
+                        Body = buzz.Body.Substring(1, 1)
+                        Dim buzzer As Integer = Convert.ToInt32(Body)
+                        lblBuzzer.Text = "Buzzer: " + Body.ToString
+                    End If
+                End If
 
 
+        Catch ex As FormatException
+
+            End Try
 
     End Sub
 
     Private Sub timer_Tick(sender As Object, e As EventArgs) Handles timer.Tick
-        lblDateTime.Text = fnc_Get_NTP.ToString("yyyyMMd/HH/mmss")
+        lblDateTime.Text = fnc_Get_NTP.ToString("yyyyMMdd/HH/mmss")
+        Dim sec As Long
+        sec = Convert.ToInt32(fnc_Get_NTP.ToString("ss"))
+        sec = sec Mod (60 * 60)
+        If sec.Equals(0) Or sec.Equals(10) Or sec.Equals(20) Or sec.Equals(30) Or sec.Equals(40) Or sec.Equals(50) Then
+            btnStart.PerformClick()
+        End If
     End Sub
 
     Public Function fnc_Get_NTP() As DateTime
@@ -150,7 +148,7 @@ Public Class EscalatorSyst
         dtTime = dtTime.AddMinutes(MM)
         dtTime = dtTime.AddSeconds(SS)
 
-        dtTime = dtTime.AddHours(8) ' <<-- * please modify (n) according to your location *
+        dtTime = dtTime.AddHours(8) ' <<-- * modify (n) according to location *
         ' ---
         Return dtTime
     End Function
