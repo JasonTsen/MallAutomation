@@ -104,6 +104,12 @@
       <DependentUpon>EscalatorSystem.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="LightSenseModule.Designer.vb">
+      <DependentUpon>LightSenseModule.vb</DependentUpon>
+    </Compile>
+    <Compile Include="LightSenseModule.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MainPage.Designer.vb">
       <DependentUpon>MainPage.vb</DependentUpon>
     </Compile>
@@ -130,6 +136,9 @@
   <ItemGroup>
     <EmbeddedResource Include="EscalatorSystem.resx">
       <DependentUpon>EscalatorSystem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LightSenseModule.resx">
+      <DependentUpon>LightSenseModule.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainPage.resx">
       <DependentUpon>MainPage.vb</DependentUpon>
@@ -161,10 +170,10 @@
     <None Include="Resources\nolight.PNG" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\light.PNG" />
+    <None Include="Resources\giphy.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\giphy.gif" />
+    <Content Include="Resources\light.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
