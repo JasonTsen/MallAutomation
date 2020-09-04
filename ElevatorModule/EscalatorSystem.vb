@@ -43,7 +43,7 @@ Public Class EscalatorSyst
             If res.Body.Length = 5 Then
                 resBody = res.Body.Substring(1, 1)
                 Dim ultra As Integer = Convert.ToInt32(resBody)
-                lblName.Text = "" + resBody.ToString
+
 
 
                 If ultra > 30 Then
@@ -53,15 +53,17 @@ Public Class EscalatorSyst
                     stopEscalator.Visible = True
                     startEscalator.Visible = False
                     buzzBody = buzz.Body.Substring(1, 1)
-                    lblBuzzer.Text = "Buzzer: " + buzzBody.ToString
+                    lblName.Text = "Sensed object from " + resBody.ToString + " cm away"
+                    lblBuzzer.Text = "The buzzer alert is OFF! "
+
                 Else
 
                     Dim buzz = client.Set("PI_05_CONTROL/buzzer", "1")
                     stopEscalator.Visible = False
                     startEscalator.Visible = True
                     buzzBody = buzz.Body.Substring(1, 1)
-
-                    lblBuzzer.Text = "Buzzer: " + buzzBody.ToString
+                    lblName.Text = "Sensed object from " + resBody.ToString + " cm away."
+                    lblBuzzer.Text = "The buzzer alert is ON!"
 
 
                 End If
@@ -70,7 +72,7 @@ Public Class EscalatorSyst
 
                 resBody = res.Body.Substring(1, 2)
                 Dim ultra As Integer = Convert.ToInt32(resBody)
-                lblName.Text = "Ultra: " + resBody.ToString
+
 
                 If ultra > 30.0 Then
 
@@ -78,16 +80,16 @@ Public Class EscalatorSyst
                     stopEscalator.Visible = True
                     startEscalator.Visible = False
                     buzzBody = buzz.Body.Substring(1, 1)
-
-                    lblBuzzer.Text = "Buzzer: " + buzzBody.ToString
+                    lblName.Text = "Currently no object from  " + resBody.ToString + " cm away"
+                    lblBuzzer.Text = "The buzzer alert is OFF!"
                 Else
                     stopEscalator.Visible = False
                     startEscalator.Visible = True
                     Dim buzz = client.Set("PI_05_CONTROL/buzzer", "1")
 
                     buzzBody = buzz.Body.Substring(1, 1)
-
-                    lblBuzzer.Text = "Buzzer: " + buzzBody.ToString
+                    lblName.Text = "Sensed object from " + resBody.ToString + " cm away"
+                    lblBuzzer.Text = "The buzzer alert is ON!"
                 End If
             End If
         Catch ex As Exception
