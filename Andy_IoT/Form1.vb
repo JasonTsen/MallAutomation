@@ -5,14 +5,19 @@ Imports Microsoft.VisualBasic.ApplicationServices
 Imports FireSharp.Extensions
 Imports Newtonsoft.Json
 Imports System.Globalization
+Imports System.Threading
+Imports System.Windows.Forms
+Imports System.ComponentModel
 
 Public Class Entrance_Module
+    Inherits Form
     Private Sub Entrance_Module_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CheckForIllegalCrossThreadCalls = False
         Timer1.Enabled = True
+
         Try
             client = New FireSharp.FirebaseClient(fcon)
-            btnStart.PerformClick()
+            pic_entrance.Image = My.Resources.entrace
         Catch
             MessageBox.Show("Failed to establish Internet connection.")
         End Try
@@ -88,86 +93,104 @@ Public Class Entrance_Module
         Dim sec As Long
         sec = Convert.ToInt32(fnc_Get_NTP.ToString("ss"))
         sec = sec Mod (60 * 60)
-        If sec.Equals(0) Or sec.Equals(10) Or sec.Equals(20) Or sec.Equals(30) Or sec.Equals(40) Or sec.Equals(50) Then
-            btnStart.PerformClick()
-        End If
+        Try
+            If sec.Equals(0) OrElse sec.Equals(10) OrElse sec.Equals(20) OrElse sec.Equals(30) OrElse sec.Equals(40) OrElse sec.Equals(50) Then
+                btnStart.PerformClick()
+            End If
+        Catch ex As Exception
+
+        End Try
     End Sub
 
-    Public Sub execution()
-        Dim res = client.Get("PI_05_" + fnc_Get_NTP().ToString("yyyyMMdd/HH/mmss") + "/ultra2")
-        Dim res_tempe = client.Get("PI_05_" + fnc_Get_NTP().ToString("yyyyMMdd/HH/mmss") + "/ultra")
+    Sub execution()
 
-        Dim Body As String
-        Dim Body_temp As String
 
         Try
+            Dim res = client.Get("PI_05_" + fnc_Get_NTP().ToString("yyyyMMdd/HH/mmss") + "/ultra2")
+            Dim res_tempe = client.Get("PI_05_" + fnc_Get_NTP().ToString("yyyyMMdd/HH/mmss") + "/ultra")
+
+            Dim Body_ultra As String
+            Dim Body_temp As String
+            Dim Body_buzz As String
             'For single digit's ultra value
-            If res.Body.Length = 5 Then
-                Body = res.Body.Substring(1, 1)
-                Body_temp = res_tempe.Body.Substring(1, 1)
-                Dim ultra As Integer = Convert.ToInt32(Body)
+
+            If res.Body.Length <= 5 Then
+                Body_ultra = res.Body.Substring(1, 1)
+                Body_temp = res_tempe.Body.Substring(1, 2)
+                Dim ultra As Integer = Convert.ToInt32(Body_ultra)
                 Dim temp As Integer = Convert.ToInt32(Body_temp)
 
-                lblUltra.Text = "Ultra: " + Body.ToString
+
 
                 'customer not nearby
-                If ultra > 30.0 Then
-                    pic_entrance1.Visible = False
+                If ultra > 30 Then
+
+
+                    lblUltra.Text = "Ultra: " + Body_ultra.ToString
                     lblTemp.Text = "Temperature: N/A"
                     Dim buzz = client.Set("PI_05_CONTROL/buzzer", "0")
+                    pic_entrance.Image = My.Resources.entrace
+                    Dim lcd = client.Set("PI_05_CONTROL/lcdtext", "Waiting customer...")
+                    Body_buzz = buzz.Body.Substring(1, 1)
+                    Dim buzzer As Integer = Convert.ToInt32(Body_buzz)
+                    lblBuzzer.Text = "Buzzer: " + Body_buzz.ToString
 
-                    Body = buzz.Body.Substring(1, 1)
-
-                    Dim buzzer As Integer = Convert.ToInt32(Body)
-                    lblBuzzer.Text = "Buzzer: " + Body.ToString
-                    lblDisplay.Text = "Waiting customer..."
+                    lblDisplay.Text = lcd.Body.ToString
 
                     'customer is nearby
                 Else
-                    pic_entrance1.Visible = True
-                    lblTemp.Text = "Temperature: " + temp.ToString()
+                    lblUltra.Text = "Ultra: " + Body_ultra.ToString
+                    lblTemp.Text = "Temperature: " + Body_temp.ToString()
                     Dim buzz = client.Set("PI_05_CONTROL/buzzer", "1")
-                    Dim lcd = client.Set("PI_05_CONTROL/lcd", "Welcome!")
-                    lblDisplay.Text = "Welcome!"
+                    Dim lcd = client.Set("PI_05_CONTROL/lcdtext", "Welcome!")
 
-                    Body = buzz.Body.Substring(1, 1)
-                    Dim buzzer As Integer = Convert.ToInt32(Body)
-                    lblBuzzer.Text = "Buzzer: " + Body.ToString
+
+                    pic_entrance.Image = My.Resources.entrance_customer
+
+                    Body_buzz = buzz.Body.Substring(1, 1)
+                    Dim buzzer As Integer = Convert.ToInt32(Body_buzz)
+                    lblBuzzer.Text = "Buzzer: " + Body_buzz.ToString
+                    lblDisplay.Text = lcd.Body.ToString
                 End If
 
+
             Else
-                'For double digits & more's ultra value
-                Body = res.Body.Substring(1, 2)
+                'For double digits value
+                Body_ultra = res.Body.Substring(1, 2)
                 Body_temp = res_tempe.Body.Substring(1, 2)
 
-                Dim ultra As Integer = Convert.ToInt32(Body)
+                Dim ultra As Integer = Convert.ToInt32(Body_ultra)
                 Dim temp As Integer = Convert.ToInt32(Body_temp)
 
-                lblUltra.Text = "Ultra: " + Body.ToString
 
                 'customer not nearby
                 If ultra > 30.0 Then
-                    pic_entrance1.Visible = False
+
+
+                    lblUltra.Text = "Ultra: " + Body_ultra.ToString
                     lblTemp.Text = "Temperature: N/A"
                     Dim buzz = client.Set("PI_05_CONTROL/buzzer", "0")
+                    pic_entrance.Image = My.Resources.entrace
+                    Dim lcd = client.Set("PI_05_CONTROL/lcdtext", "Waiting customer...")
+                    Body_buzz = buzz.Body.Substring(1, 1)
+                    Dim buzzer As Integer = Convert.ToInt32(Body_buzz)
+                    lblBuzzer.Text = "Buzzer: " + Body_buzz.ToString
 
-                    Body = buzz.Body.Substring(1, 1)
-
-                    Dim buzzer As Integer = Convert.ToInt32(Body)
-                    lblBuzzer.Text = "Buzzer: " + Body.ToString
-                    lblDisplay.Text = "Waiting customer..."
+                    lblDisplay.Text = lcd.Body.ToString
 
                     'customer is nearby
                 Else
-                    pic_entrance1.Visible = True
-                    lblTemp.Text = "Temperature: " + temp.ToString()
+                    lblUltra.Text = "Ultra: " + Body_ultra.ToString
+                    lblTemp.Text = "Temperature: " + Body_temp.ToString()
                     Dim buzz = client.Set("PI_05_CONTROL/buzzer", "1")
-                    Dim lcd = client.Set("PI_05_CONTROL/lcd", "Welcome!")
-                    lblDisplay.Text = "Welcome!"
+                    Dim lcd = client.Set("PI_05_CONTROL/lcdtext", "Welcome!")
 
-                    Body = buzz.Body.Substring(1, 1)
-                    Dim buzzer As Integer = Convert.ToInt32(Body)
-                    lblBuzzer.Text = "Buzzer: " + Body.ToString
+                    pic_entrance.Image = My.Resources.entrance_customer
+
+                    Body_buzz = buzz.Body.Substring(1, 1)
+                    Dim buzzer As Integer = Convert.ToInt32(Body_buzz)
+                    lblBuzzer.Text = "Buzzer: " + Body_buzz.ToString
+                    lblDisplay.Text = lcd.Body.ToString
                 End If
             End If
 
@@ -184,4 +207,3 @@ Public Class Entrance_Module
         t1.Start()
     End Sub
 End Class
-

@@ -25,19 +25,19 @@ Partial Class Entrance_Module
         Me.components = New System.ComponentModel.Container()
         Me.lblTime = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.pic_entrance1 = New System.Windows.Forms.PictureBox()
+        Me.pic_entrance = New System.Windows.Forms.PictureBox()
+        Me.lblDisplay = New System.Windows.Forms.Label()
         Me.lblBuzzer = New System.Windows.Forms.Label()
         Me.lblTemp = New System.Windows.Forms.Label()
+        Me.lblUltra = New System.Windows.Forms.Label()
         Me.btnStart = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.lblUltra = New System.Windows.Forms.Label()
-        Me.lblDisplay = New System.Windows.Forms.Label()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
-        Me.pic_entrance = New System.Windows.Forms.PictureBox()
-        Me.pic_entrance1 = New System.Windows.Forms.PictureBox()
         Me.btnBack = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.pic_entrance, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pic_entrance1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pic_entrance, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lblTime
@@ -63,6 +63,37 @@ Partial Class Entrance_Module
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         '
+        'pic_entrance1
+        '
+        Me.pic_entrance1.Image = Global.Andy_IoT.My.Resources.Resources.entrance_customer
+        Me.pic_entrance1.Location = New System.Drawing.Point(6, 21)
+        Me.pic_entrance1.Name = "pic_entrance1"
+        Me.pic_entrance1.Size = New System.Drawing.Size(396, 246)
+        Me.pic_entrance1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pic_entrance1.TabIndex = 2
+        Me.pic_entrance1.TabStop = False
+        Me.pic_entrance1.Visible = False
+        '
+        'pic_entrance
+        '
+        Me.pic_entrance.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pic_entrance.Image = Global.Andy_IoT.My.Resources.Resources.entrace
+        Me.pic_entrance.Location = New System.Drawing.Point(6, 21)
+        Me.pic_entrance.Name = "pic_entrance"
+        Me.pic_entrance.Size = New System.Drawing.Size(396, 246)
+        Me.pic_entrance.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pic_entrance.TabIndex = 5
+        Me.pic_entrance.TabStop = False
+        '
+        'lblDisplay
+        '
+        Me.lblDisplay.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.lblDisplay.Location = New System.Drawing.Point(442, 232)
+        Me.lblDisplay.Name = "lblDisplay"
+        Me.lblDisplay.Size = New System.Drawing.Size(150, 31)
+        Me.lblDisplay.TabIndex = 4
+        Me.lblDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'lblBuzzer
         '
         Me.lblBuzzer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
@@ -81,6 +112,15 @@ Partial Class Entrance_Module
         Me.lblTemp.TabIndex = 1
         Me.lblTemp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'lblUltra
+        '
+        Me.lblUltra.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.lblUltra.Location = New System.Drawing.Point(445, 53)
+        Me.lblUltra.Name = "lblUltra"
+        Me.lblUltra.Size = New System.Drawing.Size(138, 32)
+        Me.lblUltra.TabIndex = 0
+        Me.lblUltra.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'btnStart
         '
         Me.btnStart.Location = New System.Drawing.Point(336, 340)
@@ -92,50 +132,10 @@ Partial Class Entrance_Module
         '
         'Timer1
         '
-        Me.Timer1.Enabled = True
-        '
-        'lblUltra
-        '
-        Me.lblUltra.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblUltra.Location = New System.Drawing.Point(445, 53)
-        Me.lblUltra.Name = "lblUltra"
-        Me.lblUltra.Size = New System.Drawing.Size(138, 32)
-        Me.lblUltra.TabIndex = 0
-        Me.lblUltra.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'lblDisplay
-        '
-        Me.lblDisplay.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblDisplay.Location = New System.Drawing.Point(442, 232)
-        Me.lblDisplay.Name = "lblDisplay"
-        Me.lblDisplay.Size = New System.Drawing.Size(150, 31)
-        Me.lblDisplay.TabIndex = 4
-        Me.lblDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.Timer1.Interval = 1000
         '
         'BackgroundWorker1
         '
-        '
-        'pic_entrance
-        '
-        Me.pic_entrance.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pic_entrance.Image = Global.Andy_IoT.My.Resources.Resources.entrace
-        Me.pic_entrance.Location = New System.Drawing.Point(6, 21)
-        Me.pic_entrance.Name = "pic_entrance"
-        Me.pic_entrance.Size = New System.Drawing.Size(396, 246)
-        Me.pic_entrance.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pic_entrance.TabIndex = 5
-        Me.pic_entrance.TabStop = False
-        '
-        'pic_entrance1
-        '
-        Me.pic_entrance1.Image = Global.Andy_IoT.My.Resources.Resources.entrance_customer
-        Me.pic_entrance1.Location = New System.Drawing.Point(6, 21)
-        Me.pic_entrance1.Name = "pic_entrance1"
-        Me.pic_entrance1.Size = New System.Drawing.Size(396, 246)
-        Me.pic_entrance1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pic_entrance1.TabIndex = 2
-        Me.pic_entrance1.TabStop = False
-        Me.pic_entrance1.Visible = False
         '
         'btnBack
         '
@@ -162,8 +162,8 @@ Partial Class Entrance_Module
         Me.Name = "Entrance_Module"
         Me.Text = "Entrance Module"
         Me.GroupBox1.ResumeLayout(False)
-        CType(Me.pic_entrance, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pic_entrance1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pic_entrance, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
