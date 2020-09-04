@@ -38,10 +38,10 @@ Partial Class EscalatorSyst
         '
         'btnStart
         '
-        Me.btnStart.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btnStart.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnStart.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnStart.Location = New System.Drawing.Point(533, 564)
+        Me.btnStart.BackColor = System.Drawing.Color.DimGray
+        Me.btnStart.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnStart.ForeColor = System.Drawing.SystemColors.Control
+        Me.btnStart.Location = New System.Drawing.Point(536, 551)
         Me.btnStart.Margin = New System.Windows.Forms.Padding(4)
         Me.btnStart.Name = "btnStart"
         Me.btnStart.Size = New System.Drawing.Size(156, 68)
@@ -76,6 +76,7 @@ Partial Class EscalatorSyst
         Me.lblName.AutoSize = True
         Me.lblName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblName.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblName.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.lblName.Location = New System.Drawing.Point(388, 440)
         Me.lblName.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblName.Name = "lblName"
@@ -87,6 +88,7 @@ Partial Class EscalatorSyst
         Me.lblBuzzer.AutoSize = True
         Me.lblBuzzer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblBuzzer.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblBuzzer.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.lblBuzzer.Location = New System.Drawing.Point(388, 481)
         Me.lblBuzzer.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblBuzzer.Name = "lblBuzzer"
@@ -95,8 +97,10 @@ Partial Class EscalatorSyst
         '
         'lblDateTime
         '
+        Me.lblDateTime.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.lblDateTime.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lblDateTime.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDateTime.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.lblDateTime.Location = New System.Drawing.Point(196, 71)
         Me.lblDateTime.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblDateTime.Name = "lblDateTime"
@@ -114,6 +118,7 @@ Partial Class EscalatorSyst
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.ClientSize = New System.Drawing.Size(1333, 692)
         Me.Controls.Add(Me.lblDateTime)
         Me.Controls.Add(Me.lblBuzzer)

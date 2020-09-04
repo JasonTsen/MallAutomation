@@ -22,10 +22,10 @@ Partial Class MainPage
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
+        Me.btnEscalator = New System.Windows.Forms.Button()
+        Me.btnEntrance = New System.Windows.Forms.Button()
+        Me.btnAircon = New System.Windows.Forms.Button()
+        Me.btnLight = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -33,45 +33,45 @@ Partial Class MainPage
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Button1
+        'btnEscalator
         '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(217, 324)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(100, 40)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnEscalator.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEscalator.Location = New System.Drawing.Point(127, 379)
+        Me.btnEscalator.Name = "btnEscalator"
+        Me.btnEscalator.Size = New System.Drawing.Size(100, 61)
+        Me.btnEscalator.TabIndex = 0
+        Me.btnEscalator.Text = "Escalator Module"
+        Me.btnEscalator.UseVisualStyleBackColor = True
         '
-        'Button2
+        'btnEntrance
         '
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(217, 391)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(100, 40)
-        Me.Button2.TabIndex = 1
-        Me.Button2.Text = "Button2"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnEntrance.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEntrance.Location = New System.Drawing.Point(256, 379)
+        Me.btnEntrance.Name = "btnEntrance"
+        Me.btnEntrance.Size = New System.Drawing.Size(100, 60)
+        Me.btnEntrance.TabIndex = 1
+        Me.btnEntrance.Text = "Entrance Module"
+        Me.btnEntrance.UseVisualStyleBackColor = True
         '
-        'Button3
+        'btnAircon
         '
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(434, 324)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(100, 40)
-        Me.Button3.TabIndex = 2
-        Me.Button3.Text = "Button3"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.btnAircon.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAircon.Location = New System.Drawing.Point(385, 379)
+        Me.btnAircon.Name = "btnAircon"
+        Me.btnAircon.Size = New System.Drawing.Size(100, 61)
+        Me.btnAircon.TabIndex = 2
+        Me.btnAircon.Text = "Aircon Module"
+        Me.btnAircon.UseVisualStyleBackColor = True
         '
-        'Button4
+        'btnLight
         '
-        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(434, 391)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(100, 40)
-        Me.Button4.TabIndex = 3
-        Me.Button4.Text = "Button4"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.btnLight.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLight.Location = New System.Drawing.Point(508, 379)
+        Me.btnLight.Name = "btnLight"
+        Me.btnLight.Size = New System.Drawing.Size(100, 60)
+        Me.btnLight.TabIndex = 3
+        Me.btnLight.Text = "Light Module"
+        Me.btnLight.UseVisualStyleBackColor = True
         '
         'Label1
         '
@@ -88,12 +88,12 @@ Partial Class MainPage
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.GroupBox1.Controls.Add(Me.Button3)
-        Me.GroupBox1.Controls.Add(Me.Button1)
+        Me.GroupBox1.Controls.Add(Me.btnAircon)
+        Me.GroupBox1.Controls.Add(Me.btnEscalator)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.PictureBox1)
-        Me.GroupBox1.Controls.Add(Me.Button4)
-        Me.GroupBox1.Controls.Add(Me.Button2)
+        Me.GroupBox1.Controls.Add(Me.btnLight)
+        Me.GroupBox1.Controls.Add(Me.btnEntrance)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(779, 479)
@@ -126,10 +126,10 @@ Partial Class MainPage
 
     End Sub
 
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button4 As Button
+    Friend WithEvents btnEscalator As Button
+    Friend WithEvents btnEntrance As Button
+    Friend WithEvents btnAircon As Button
+    Friend WithEvents btnLight As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents PictureBox1 As PictureBox
