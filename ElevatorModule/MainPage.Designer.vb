@@ -48,7 +48,7 @@ Partial Class MainPage
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(436, 240)
+        Me.Button3.Location = New System.Drawing.Point(436, 229)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(75, 23)
         Me.Button3.TabIndex = 2

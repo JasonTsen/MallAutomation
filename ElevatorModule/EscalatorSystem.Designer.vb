@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class EscalatorSyst
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class EscalatorSyst
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(EscalatorSyst))
@@ -31,25 +31,31 @@ Partial Class EscalatorSyst
         Me.lblBuzzer = New System.Windows.Forms.Label()
         Me.lblDateTime = New System.Windows.Forms.Label()
         Me.timer = New System.Windows.Forms.Timer(Me.components)
+        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         CType(Me.stopEscalator, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.startEscalator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnStart
         '
-        Me.btnStart.Location = New System.Drawing.Point(422, 399)
+        Me.btnStart.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnStart.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnStart.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnStart.Location = New System.Drawing.Point(533, 564)
+        Me.btnStart.Margin = New System.Windows.Forms.Padding(4)
         Me.btnStart.Name = "btnStart"
-        Me.btnStart.Size = New System.Drawing.Size(75, 23)
+        Me.btnStart.Size = New System.Drawing.Size(156, 68)
         Me.btnStart.TabIndex = 0
         Me.btnStart.Text = "&Start"
-        Me.btnStart.UseVisualStyleBackColor = True
+        Me.btnStart.UseVisualStyleBackColor = False
         '
         'stopEscalator
         '
         Me.stopEscalator.Image = CType(resources.GetObject("stopEscalator.Image"), System.Drawing.Image)
-        Me.stopEscalator.Location = New System.Drawing.Point(292, 40)
+        Me.stopEscalator.Location = New System.Drawing.Point(390, 138)
+        Me.stopEscalator.Margin = New System.Windows.Forms.Padding(4)
         Me.stopEscalator.Name = "stopEscalator"
-        Me.stopEscalator.Size = New System.Drawing.Size(342, 236)
+        Me.stopEscalator.Size = New System.Drawing.Size(456, 290)
         Me.stopEscalator.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.stopEscalator.TabIndex = 1
         Me.stopEscalator.TabStop = False
@@ -57,9 +63,10 @@ Partial Class EscalatorSyst
         'startEscalator
         '
         Me.startEscalator.Image = CType(resources.GetObject("startEscalator.Image"), System.Drawing.Image)
-        Me.startEscalator.Location = New System.Drawing.Point(293, 40)
+        Me.startEscalator.Location = New System.Drawing.Point(390, 138)
+        Me.startEscalator.Margin = New System.Windows.Forms.Padding(4)
         Me.startEscalator.Name = "startEscalator"
-        Me.startEscalator.Size = New System.Drawing.Size(341, 236)
+        Me.startEscalator.Size = New System.Drawing.Size(455, 290)
         Me.startEscalator.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.startEscalator.TabIndex = 2
         Me.startEscalator.TabStop = False
@@ -68,38 +75,46 @@ Partial Class EscalatorSyst
         '
         Me.lblName.AutoSize = True
         Me.lblName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lblName.Location = New System.Drawing.Point(293, 300)
+        Me.lblName.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblName.Location = New System.Drawing.Point(388, 440)
+        Me.lblName.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblName.Name = "lblName"
-        Me.lblName.Size = New System.Drawing.Size(2, 15)
+        Me.lblName.Size = New System.Drawing.Size(2, 31)
         Me.lblName.TabIndex = 3
         '
         'lblBuzzer
         '
         Me.lblBuzzer.AutoSize = True
         Me.lblBuzzer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lblBuzzer.Location = New System.Drawing.Point(293, 333)
+        Me.lblBuzzer.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblBuzzer.Location = New System.Drawing.Point(388, 481)
+        Me.lblBuzzer.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblBuzzer.Name = "lblBuzzer"
-        Me.lblBuzzer.Size = New System.Drawing.Size(2, 15)
+        Me.lblBuzzer.Size = New System.Drawing.Size(2, 31)
         Me.lblBuzzer.TabIndex = 4
         '
         'lblDateTime
         '
-        Me.lblDateTime.AutoSize = True
-        Me.lblDateTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lblDateTime.Location = New System.Drawing.Point(82, 112)
+        Me.lblDateTime.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.lblDateTime.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDateTime.Location = New System.Drawing.Point(196, 71)
+        Me.lblDateTime.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblDateTime.Name = "lblDateTime"
-        Me.lblDateTime.Size = New System.Drawing.Size(2, 15)
+        Me.lblDateTime.Size = New System.Drawing.Size(857, 46)
         Me.lblDateTime.TabIndex = 5
         '
         'timer
         '
         Me.timer.Interval = 1000
         '
+        'BackgroundWorker1
+        '
+        '
         'EscalatorSyst
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1000, 562)
+        Me.ClientSize = New System.Drawing.Size(1333, 692)
         Me.Controls.Add(Me.lblDateTime)
         Me.Controls.Add(Me.lblBuzzer)
         Me.Controls.Add(Me.lblName)
@@ -107,6 +122,7 @@ Partial Class EscalatorSyst
         Me.Controls.Add(Me.stopEscalator)
         Me.Controls.Add(Me.btnStart)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "EscalatorSyst"
         Me.Text = "Escalator System"
         CType(Me.stopEscalator, System.ComponentModel.ISupportInitialize).EndInit()
@@ -123,4 +139,5 @@ Partial Class EscalatorSyst
     Friend WithEvents lblBuzzer As Label
     Friend WithEvents lblDateTime As Label
     Friend WithEvents timer As Timer
+    Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
 End Class

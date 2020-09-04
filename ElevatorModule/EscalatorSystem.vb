@@ -5,18 +5,22 @@ Imports Microsoft.VisualBasic.ApplicationServices
 Imports FireSharp.Extensions
 Imports Newtonsoft.Json
 Imports System.Globalization
-
+Imports System.Threading
+Imports System.Windows.Forms
+Imports System.ComponentModel
 Public Class EscalatorSyst
+    Inherits Form
 
     Private fcon As New FirebaseConfig() With
         {
         .AuthSecret = "qpXxaJ3Ud3RlW6LslKq88v22hG8Eh30qNo0hdcCU",
         .BasePath = "https://bait2123-202006-05.firebaseio.com/"
         }
+
     Private client As IFirebaseClient
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         timer.Enabled = True
-
+        CheckForIllegalCrossThreadCalls = False
 
         Try
             client = New FireSharp.FirebaseClient(fcon)
@@ -27,86 +31,87 @@ Public Class EscalatorSyst
             MessageBox.Show("there was a problem in the internet connection")
         End Try
     End Sub
-
-    Private Sub btnStart_Click(sender As Object, e As EventArgs) Handles btnStart.Click
-
-
-
-
-        Dim res = client.Get("PI_05_" + fnc_Get_NTP.ToString("yyyyMMdd/HH/mmss") + "/ultra2")
-
-
+    Sub firebase()
 
         Try
+            Dim res = client.Get("PI_05_" + fnc_Get_NTP.ToString("yyyyMMdd/HH/mmss") + "/ultra2")
+
+            Dim resBody As String
+            Dim buzzBody As String
 
 
-            Dim Body As String
-
-                If res.Body.Length = 5 Then
-                    Body = res.Body.Substring(1, 1)
-                    Dim ultra As Integer = Convert.ToInt32(Body)
-                    lblName.Text = "Ultra: " + Body.ToString
-                    If ultra > 30.0 Then
-                        stopEscalator.Visible = True
-                        startEscalator.Visible = False
-                        Dim buzz = client.Set("PI_05_CONTROL/buzzer", "0")
+            If res.Body.Length = 5 Then
+                resBody = res.Body.Substring(1, 1)
+                Dim ultra As Integer = Convert.ToInt32(resBody)
+                lblName.Text = "" + resBody.ToString
 
 
-                        Body = buzz.Body.Substring(1, 1)
+                If ultra > 30 Then
 
-                        Dim buzzer As Integer = Convert.ToInt32(Body)
-                        lblBuzzer.Text = "Buzzer: " + Body.ToString
-                    Else
-                        stopEscalator.Visible = False
-                        startEscalator.Visible = True
-                        Dim buzz = client.Set("PI_05_CONTROL/buzzer", "1")
+                    Dim buzz = client.Set("PI_05_CONTROL/buzzer", "0")
 
-                    Body = buzz.Body.Substring(1, 1)
-                        Dim buzzer As Integer = Convert.ToInt32(Body)
-                        lblBuzzer.Text = "Buzzer: " + Body.ToString
-                    End If
-
+                    stopEscalator.Visible = True
+                    startEscalator.Visible = False
+                    buzzBody = buzz.Body.Substring(1, 1)
+                    lblBuzzer.Text = "Buzzer: " + buzzBody.ToString
                 Else
 
-                    Body = res.Body.Substring(1, 2)
-                    Dim ultra As Integer = Convert.ToInt32(Body)
-                    lblName.Text = "Ultra: " + Body.ToString
-                    If ultra > 30.0 Then
-                        stopEscalator.Visible = True
-                        startEscalator.Visible = False
-                        Dim buzz = client.Set("PI_05_CONTROL/buzzer", "0")
+                    Dim buzz = client.Set("PI_05_CONTROL/buzzer", "1")
+                    stopEscalator.Visible = False
+                    startEscalator.Visible = True
+                    buzzBody = buzz.Body.Substring(1, 1)
+
+                    lblBuzzer.Text = "Buzzer: " + buzzBody.ToString
 
 
-                        Body = buzz.Body.Substring(1, 1)
-
-                        Dim buzzer As Integer = Convert.ToInt32(Body)
-                        lblBuzzer.Text = "Buzzer: " + Body.ToString
-                    Else
-                        stopEscalator.Visible = False
-                        startEscalator.Visible = True
-                        Dim buzz = client.Set("PI_05_CONTROL/buzzer", "1")
-
-                        Body = buzz.Body.Substring(1, 1)
-                        Dim buzzer As Integer = Convert.ToInt32(Body)
-                        lblBuzzer.Text = "Buzzer: " + Body.ToString
-                    End If
                 End If
 
+            Else
 
-        Catch ex As FormatException
+                resBody = res.Body.Substring(1, 2)
+                Dim ultra As Integer = Convert.ToInt32(resBody)
+                lblName.Text = "Ultra: " + resBody.ToString
 
-            End Try
+                If ultra > 30.0 Then
 
+                    Dim buzz = client.Set("PI_05_CONTROL/buzzer", "0")
+                    stopEscalator.Visible = True
+                    startEscalator.Visible = False
+                    buzzBody = buzz.Body.Substring(1, 1)
+
+                    lblBuzzer.Text = "Buzzer: " + buzzBody.ToString
+                Else
+                    stopEscalator.Visible = False
+                    startEscalator.Visible = True
+                    Dim buzz = client.Set("PI_05_CONTROL/buzzer", "1")
+
+                    buzzBody = buzz.Body.Substring(1, 1)
+
+                    lblBuzzer.Text = "Buzzer: " + buzzBody.ToString
+                End If
+            End If
+        Catch ex As Exception
+        End Try
+    End Sub
+    Private Sub btnStart_Click(sender As Object, e As EventArgs) Handles btnStart.Click
+        BackgroundWorker1.RunWorkerAsync()
     End Sub
 
     Private Sub timer_Tick(sender As Object, e As EventArgs) Handles timer.Tick
-        lblDateTime.Text = fnc_Get_NTP.ToString("yyyyMMdd/HH/mmss")
+        lblDateTime.Text = "Current Date and Time : " + fnc_Get_NTP.ToString("yyyy/MMdd/HH/mmss")
+        CheckForIllegalCrossThreadCalls = False
+
         Dim sec As Long
         sec = Convert.ToInt32(fnc_Get_NTP.ToString("ss"))
         sec = sec Mod (60 * 60)
-        If sec.Equals(0) Or sec.Equals(10) Or sec.Equals(20) Or sec.Equals(30) Or sec.Equals(40) Or sec.Equals(50) Then
-            btnStart.PerformClick()
-        End If
+        Try
+            If sec.Equals(0) OrElse sec.Equals(10) OrElse sec.Equals(20) OrElse sec.Equals(30) OrElse sec.Equals(40) OrElse sec.Equals(50) Then
+                btnStart.PerformClick()
+            End If
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 
     Public Function fnc_Get_NTP() As DateTime
@@ -152,4 +157,10 @@ Public Class EscalatorSyst
         ' ---
         Return dtTime
     End Function
+
+    Private Sub BackgroundWorker1_DoWork(sender As Object, e As DoWorkEventArgs) Handles BackgroundWorker1.DoWork
+        CheckForIllegalCrossThreadCalls = False
+        Dim t1 As New System.Threading.Thread(AddressOf firebase)
+        t1.Start()
+    End Sub
 End Class
