@@ -38,9 +38,9 @@ Public Class EscalatorSyst
 
 
         Try
-                Dim tempUltra = New With {Key .Body = ""}
 
-                Dim Body As String
+
+            Dim Body As String
 
                 If res.Body.Length = 5 Then
                     Body = res.Body.Substring(1, 1)
