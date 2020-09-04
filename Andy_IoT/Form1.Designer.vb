@@ -25,12 +25,19 @@ Partial Class Entrance_Module
         Me.components = New System.ComponentModel.Container()
         Me.lblTime = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.lblText = New System.Windows.Forms.Label()
+        Me.lblBuzzer = New System.Windows.Forms.Label()
         Me.lblTemp = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.btnStart = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.lblUltra = New System.Windows.Forms.Label()
+        Me.lblDisplay = New System.Windows.Forms.Label()
+        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
+        Me.pic_entrance = New System.Windows.Forms.PictureBox()
+        Me.pic_entrance1 = New System.Windows.Forms.PictureBox()
+        Me.btnBack = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.pic_entrance, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pic_entrance1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lblTime
@@ -44,45 +51,39 @@ Partial Class Entrance_Module
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.lblText)
+        Me.GroupBox1.Controls.Add(Me.pic_entrance1)
+        Me.GroupBox1.Controls.Add(Me.pic_entrance)
+        Me.GroupBox1.Controls.Add(Me.lblDisplay)
+        Me.GroupBox1.Controls.Add(Me.lblBuzzer)
         Me.GroupBox1.Controls.Add(Me.lblTemp)
-        Me.GroupBox1.Controls.Add(Me.Label1)
+        Me.GroupBox1.Controls.Add(Me.lblUltra)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 43)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(697, 281)
+        Me.GroupBox1.Size = New System.Drawing.Size(618, 281)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         '
-        'lblText
+        'lblBuzzer
         '
-        Me.lblText.AutoSize = True
-        Me.lblText.Location = New System.Drawing.Point(565, 91)
-        Me.lblText.Name = "lblText"
-        Me.lblText.Size = New System.Drawing.Size(51, 17)
-        Me.lblText.TabIndex = 2
-        Me.lblText.Text = "Label3"
+        Me.lblBuzzer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.lblBuzzer.Location = New System.Drawing.Point(445, 96)
+        Me.lblBuzzer.Name = "lblBuzzer"
+        Me.lblBuzzer.Size = New System.Drawing.Size(138, 32)
+        Me.lblBuzzer.TabIndex = 2
+        Me.lblBuzzer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblTemp
         '
-        Me.lblTemp.AutoSize = True
-        Me.lblTemp.Location = New System.Drawing.Point(565, 54)
+        Me.lblTemp.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.lblTemp.Location = New System.Drawing.Point(445, 140)
         Me.lblTemp.Name = "lblTemp"
-        Me.lblTemp.Size = New System.Drawing.Size(51, 17)
+        Me.lblTemp.Size = New System.Drawing.Size(138, 32)
         Me.lblTemp.TabIndex = 1
-        Me.lblTemp.Text = "Label2"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(565, 17)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(51, 17)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Label1"
+        Me.lblTemp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'btnStart
         '
-        Me.btnStart.Location = New System.Drawing.Point(291, 340)
+        Me.btnStart.Location = New System.Drawing.Point(336, 340)
         Me.btnStart.Name = "btnStart"
         Me.btnStart.Size = New System.Drawing.Size(123, 42)
         Me.btnStart.TabIndex = 0
@@ -93,19 +94,76 @@ Partial Class Entrance_Module
         '
         Me.Timer1.Enabled = True
         '
+        'lblUltra
+        '
+        Me.lblUltra.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.lblUltra.Location = New System.Drawing.Point(445, 53)
+        Me.lblUltra.Name = "lblUltra"
+        Me.lblUltra.Size = New System.Drawing.Size(138, 32)
+        Me.lblUltra.TabIndex = 0
+        Me.lblUltra.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblDisplay
+        '
+        Me.lblDisplay.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.lblDisplay.Location = New System.Drawing.Point(442, 232)
+        Me.lblDisplay.Name = "lblDisplay"
+        Me.lblDisplay.Size = New System.Drawing.Size(150, 31)
+        Me.lblDisplay.TabIndex = 4
+        Me.lblDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'BackgroundWorker1
+        '
+        '
+        'pic_entrance
+        '
+        Me.pic_entrance.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pic_entrance.Image = Global.Andy_IoT.My.Resources.Resources.entrace
+        Me.pic_entrance.Location = New System.Drawing.Point(6, 21)
+        Me.pic_entrance.Name = "pic_entrance"
+        Me.pic_entrance.Size = New System.Drawing.Size(396, 246)
+        Me.pic_entrance.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pic_entrance.TabIndex = 5
+        Me.pic_entrance.TabStop = False
+        '
+        'pic_entrance1
+        '
+        Me.pic_entrance1.Image = Global.Andy_IoT.My.Resources.Resources.entrance_customer
+        Me.pic_entrance1.Location = New System.Drawing.Point(6, 21)
+        Me.pic_entrance1.Name = "pic_entrance1"
+        Me.pic_entrance1.Size = New System.Drawing.Size(396, 246)
+        Me.pic_entrance1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pic_entrance1.TabIndex = 2
+        Me.pic_entrance1.TabStop = False
+        Me.pic_entrance1.Visible = False
+        '
+        'btnBack
+        '
+        Me.btnBack.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.btnBack.Location = New System.Drawing.Point(160, 340)
+        Me.btnBack.Name = "btnBack"
+        Me.btnBack.Size = New System.Drawing.Size(123, 42)
+        Me.btnBack.TabIndex = 2
+        Me.btnBack.Text = "Back"
+        Me.btnBack.UseVisualStyleBackColor = True
+        '
         'Entrance_Module
         '
         Me.AcceptButton = Me.btnStart
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(721, 394)
+        Me.CancelButton = Me.btnBack
+        Me.ClientSize = New System.Drawing.Size(650, 394)
+        Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.btnStart)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.lblTime)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "Entrance_Module"
         Me.Text = "Entrance Module"
         Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
+        CType(Me.pic_entrance, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pic_entrance1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -113,8 +171,13 @@ Partial Class Entrance_Module
     Friend WithEvents lblTime As Label
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents btnStart As Button
-    Friend WithEvents lblText As Label
+    Friend WithEvents lblBuzzer As Label
     Friend WithEvents lblTemp As Label
-    Friend WithEvents Label1 As Label
     Public WithEvents Timer1 As Timer
+    Friend WithEvents lblUltra As Label
+    Friend WithEvents lblDisplay As Label
+    Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents pic_entrance As PictureBox
+    Friend WithEvents pic_entrance1 As PictureBox
+    Friend WithEvents btnBack As Button
 End Class

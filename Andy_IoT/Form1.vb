@@ -8,11 +8,11 @@ Imports System.Globalization
 
 Public Class Entrance_Module
     Private Sub Entrance_Module_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        CheckForIllegalCrossThreadCalls = False
         Timer1.Enabled = True
         Try
             client = New FireSharp.FirebaseClient(fcon)
-            fnc_Get_NTP()
-            'btnStart.PerformClick()
+            btnStart.PerformClick()
         Catch
             MessageBox.Show("Failed to establish Internet connection.")
         End Try
@@ -27,40 +27,11 @@ Public Class Entrance_Module
     Private client As IFirebaseClient
 
     Private Sub btnStart_Click(sender As Object, e As EventArgs) Handles btnStart.Click
-        Dim res = client.Get("PI_05_" + fnc_Get_NTP().ToString("yyyyMMd/HH/mmss") + "/ultra2")
-
         Try
-            Dim tempUltra = New With {Key .Body = ""}
-            Dim Body As String
-
-            If res.Body.Length <= 4 Then
-                Body = res.Body.Substring(1, 1)
-            Else
-                Body = res.Body.Substring(1, 2)
-            End If
-            Dim ultra As Double = Convert.ToInt32(Body)
-            Label1.Text = "Ultra: " + Body.ToString
-            If ultra > 55 Then
-                Dim buzz = client.Set("PI_05_CONTROL/buzzer", "1")
-
-                Body = buzz.Body.Substring(1, 1)
-
-                Dim buzzer As Integer = Convert.ToInt32(Body)
-                lblTemp.Text = "Buzzer: " + Body.ToString
-            Else
-                Dim buzz = client.Set("PI_05_CONTROL/buzzer", "0")
-                Dim tempBuzz = New With {Key .Body = ""}
-
-                Body = buzz.Body.Substring(1, 1)
-
-                Dim buzzer As Integer = Convert.ToInt32(Body)
-                lblTemp.Text = "Buzzer: " + Body.ToString
-            End If
+            BackgroundWorker1.RunWorkerAsync()
         Catch ex As Exception
 
         End Try
-
-
     End Sub
 
     Public Function fnc_Get_NTP() As DateTime
@@ -111,8 +82,106 @@ Public Class Entrance_Module
     End Function
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        lblTime.Text = "Current Time:" + "   " + DateTime.Now.ToString("MMMM dd, yyyy   HH:mm:ss")
+        lblTime.Text = "Current Time:  " + fnc_Get_NTP.ToString("yyyyMMdd/HH/mmss")
+        CheckForIllegalCrossThreadCalls = False
+
+        Dim sec As Long
+        sec = Convert.ToInt32(fnc_Get_NTP.ToString("ss"))
+        sec = sec Mod (60 * 60)
+        If sec.Equals(0) Or sec.Equals(10) Or sec.Equals(20) Or sec.Equals(30) Or sec.Equals(40) Or sec.Equals(50) Then
+            btnStart.PerformClick()
+        End If
     End Sub
 
+    Public Sub execution()
+        Dim res = client.Get("PI_05_" + fnc_Get_NTP().ToString("yyyyMMdd/HH/mmss") + "/ultra2")
+        Dim res_tempe = client.Get("PI_05_" + fnc_Get_NTP().ToString("yyyyMMdd/HH/mmss") + "/ultra")
+
+        Dim Body As String
+        Dim Body_temp As String
+
+        Try
+            'For single digit's ultra value
+            If res.Body.Length = 5 Then
+                Body = res.Body.Substring(1, 1)
+                Body_temp = res_tempe.Body.Substring(1, 1)
+                Dim ultra As Integer = Convert.ToInt32(Body)
+                Dim temp As Integer = Convert.ToInt32(Body_temp)
+
+                lblUltra.Text = "Ultra: " + Body.ToString
+
+                'customer not nearby
+                If ultra > 30.0 Then
+                    pic_entrance1.Visible = False
+                    lblTemp.Text = "Temperature: N/A"
+                    Dim buzz = client.Set("PI_05_CONTROL/buzzer", "0")
+
+                    Body = buzz.Body.Substring(1, 1)
+
+                    Dim buzzer As Integer = Convert.ToInt32(Body)
+                    lblBuzzer.Text = "Buzzer: " + Body.ToString
+                    lblDisplay.Text = "Waiting customer..."
+
+                    'customer is nearby
+                Else
+                    pic_entrance1.Visible = True
+                    lblTemp.Text = "Temperature: " + temp.ToString()
+                    Dim buzz = client.Set("PI_05_CONTROL/buzzer", "1")
+                    Dim lcd = client.Set("PI_05_CONTROL/lcd", "Welcome!")
+                    lblDisplay.Text = "Welcome!"
+
+                    Body = buzz.Body.Substring(1, 1)
+                    Dim buzzer As Integer = Convert.ToInt32(Body)
+                    lblBuzzer.Text = "Buzzer: " + Body.ToString
+                End If
+
+            Else
+                'For double digits & more's ultra value
+                Body = res.Body.Substring(1, 2)
+                Body_temp = res_tempe.Body.Substring(1, 2)
+
+                Dim ultra As Integer = Convert.ToInt32(Body)
+                Dim temp As Integer = Convert.ToInt32(Body_temp)
+
+                lblUltra.Text = "Ultra: " + Body.ToString
+
+                'customer not nearby
+                If ultra > 30.0 Then
+                    pic_entrance1.Visible = False
+                    lblTemp.Text = "Temperature: N/A"
+                    Dim buzz = client.Set("PI_05_CONTROL/buzzer", "0")
+
+                    Body = buzz.Body.Substring(1, 1)
+
+                    Dim buzzer As Integer = Convert.ToInt32(Body)
+                    lblBuzzer.Text = "Buzzer: " + Body.ToString
+                    lblDisplay.Text = "Waiting customer..."
+
+                    'customer is nearby
+                Else
+                    pic_entrance1.Visible = True
+                    lblTemp.Text = "Temperature: " + temp.ToString()
+                    Dim buzz = client.Set("PI_05_CONTROL/buzzer", "1")
+                    Dim lcd = client.Set("PI_05_CONTROL/lcd", "Welcome!")
+                    lblDisplay.Text = "Welcome!"
+
+                    Body = buzz.Body.Substring(1, 1)
+                    Dim buzzer As Integer = Convert.ToInt32(Body)
+                    lblBuzzer.Text = "Buzzer: " + Body.ToString
+                End If
+            End If
+
+        Catch ex As Exception
+
+        End Try
+
+    End Sub
+
+    Private Sub BackgroundWorker1_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
+        CheckForIllegalCrossThreadCalls = False
+        Dim t1 As New System.Threading.Thread(AddressOf execution)
+
+        t1.Start()
+    End Sub
 End Class
 
