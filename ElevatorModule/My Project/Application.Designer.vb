@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.ElevatorModule.MainPage
+            Me.MainForm = Global.ElevatorModule.EscalatorSyst
         End Sub
     End Class
 End Namespace

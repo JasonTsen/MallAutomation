@@ -8,6 +8,7 @@ Imports System.Globalization
 Imports System.Threading
 Imports System.Windows.Forms
 Imports System.ComponentModel
+
 Public Class EscalatorSyst
     Inherits Form
 
@@ -17,7 +18,7 @@ Public Class EscalatorSyst
         .BasePath = "https://bait2123-202006-05.firebaseio.com/"
         }
 
-    Private client As IFirebaseClient
+    Public client As IFirebaseClient
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         timer.Enabled = True
         CheckForIllegalCrossThreadCalls = False
@@ -43,19 +44,13 @@ Public Class EscalatorSyst
             If res.Body.Length = 5 Then
                 resBody = res.Body.Substring(1, 1)
                 Dim ultra As Integer = Convert.ToInt32(resBody)
-
-
-
                 If ultra > 30 Then
-
                     Dim buzz = client.Set("PI_05_CONTROL/buzzer", "0")
-
                     stopEscalator.Visible = True
                     startEscalator.Visible = False
                     buzzBody = buzz.Body.Substring(1, 1)
                     lblName.Text = "Sensed object from " + resBody.ToString + " cm away"
                     lblBuzzer.Text = "The buzzer alert is OFF! "
-
                 Else
 
                     Dim buzz = client.Set("PI_05_CONTROL/buzzer", "1")
@@ -68,14 +63,12 @@ Public Class EscalatorSyst
 
                 End If
 
+                lblReport.Text += resBody.ToString + "       " + lblBuzzer.Text + "         " + fnc_Get_NTP.ToString("yyyyMMdd/HH/mmss") + vbCrLf
             Else
 
                 resBody = res.Body.Substring(1, 2)
                 Dim ultra As Integer = Convert.ToInt32(resBody)
-
-
                 If ultra > 30.0 Then
-
                     Dim buzz = client.Set("PI_05_CONTROL/buzzer", "0")
                     stopEscalator.Visible = True
                     startEscalator.Visible = False
@@ -90,23 +83,32 @@ Public Class EscalatorSyst
                     buzzBody = buzz.Body.Substring(1, 1)
                     lblName.Text = "Sensed object from " + resBody.ToString + " cm away"
                     lblBuzzer.Text = "The buzzer alert is ON!"
+
                 End If
+
+                lblReport.Text +=   resBody.ToString + "       " + lblBuzzer.Text + "         " + fnc_Get_NTP.ToString("yyyyMMdd/HH/mmss") + vbCrLf
             End If
         Catch ex As Exception
         End Try
     End Sub
     Private Sub btnStart_Click(sender As Object, e As EventArgs) Handles btnStart.Click
-        BackgroundWorker1.RunWorkerAsync()
+        Try
+            BackgroundWorker1.RunWorkerAsync()
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 
     Private Sub timer_Tick(sender As Object, e As EventArgs) Handles timer.Tick
         lblDateTime.Text = "Current Date and Time : " + fnc_Get_NTP.ToString("yyyy/MMdd/HH/mmss")
         CheckForIllegalCrossThreadCalls = False
 
-        Dim sec As Long
-        sec = Convert.ToInt32(fnc_Get_NTP.ToString("ss"))
-        sec = sec Mod (60 * 60)
+
         Try
+            Dim sec As Long
+            sec = Convert.ToInt32(fnc_Get_NTP.ToString("ss"))
+            sec = sec Mod (60 * 60)
             If sec.Equals(0) OrElse sec.Equals(10) OrElse sec.Equals(20) OrElse sec.Equals(30) OrElse sec.Equals(40) OrElse sec.Equals(50) Then
                 btnStart.PerformClick()
             End If
@@ -162,9 +164,14 @@ Public Class EscalatorSyst
 
     Private Sub BackgroundWorker1_DoWork(sender As Object, e As DoWorkEventArgs) Handles BackgroundWorker1.DoWork
         CheckForIllegalCrossThreadCalls = False
-        Dim t1 As New System.Threading.Thread(AddressOf firebase)
+        Dim t1 As New Thread(AddressOf firebase)
         t1.Start()
     End Sub
+
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        Me.Close()
+    End Sub
+
 
 
 End Class

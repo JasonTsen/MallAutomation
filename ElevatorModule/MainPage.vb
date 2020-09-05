@@ -1,6 +1,6 @@
 ﻿Public Class MainPage
     Private Sub btnEscalator_Click(sender As Object, e As EventArgs) Handles btnEscalator.Click
-
+        EscalatorSyst.Show()
     End Sub
 
     Private Sub btnEntrance_Click(sender As Object, e As EventArgs) Handles btnEntrance.Click
