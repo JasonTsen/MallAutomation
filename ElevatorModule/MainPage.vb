@@ -26,6 +26,7 @@
 
     Private Sub btnAircon_Click(sender As Object, e As EventArgs) Handles btnAircon.Click
         AircondModule.Show()
+    End Sub
     Private Sub btnEscalator_Click(sender As Object, e As EventArgs) Handles btnEscalator.Click
         EscalatorSyst.Show()
     End Sub
