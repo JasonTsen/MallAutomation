@@ -28,6 +28,8 @@ Public Class AircondModule
         End Try
     End Sub
     Private Sub btnOff_Click(sender As Object, e As EventArgs) Handles btnOnOff.Click
+
+        Timer1.Enabled = True
         Try
             BackgroundWorker1.RunWorkerAsync()
         Catch ex As Exception
@@ -36,6 +38,7 @@ Public Class AircondModule
     End Sub
 
     Private Sub btnOFF_Click_1(sender As Object, e As EventArgs) Handles btnOFF.Click
+        Timer1.Enabled = False
         lblOnOff.Text = "OFF"
         fanIcon.Image = My.Resources.fan_ventilator_propeller_rotor_motion_512
         Dim ledLight = client.Set("PI_05_CONTROL/led", "0")
