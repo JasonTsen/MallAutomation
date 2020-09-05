@@ -28,8 +28,8 @@ Partial Class MainPage
         Me.btnLight = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -67,7 +67,7 @@ Partial Class MainPage
         Me.btnAircon.Name = "btnAircon"
         Me.btnAircon.Size = New System.Drawing.Size(115, 60)
         Me.btnAircon.TabIndex = 2
-        Me.btnAircon.Text = "&Aircon"
+        Me.btnAircon.Text = "&Aircond"
         Me.btnAircon.UseVisualStyleBackColor = False
         '
         'btnLight
@@ -110,16 +110,6 @@ Partial Class MainPage
         Me.GroupBox1.TabIndex = 6
         Me.GroupBox1.TabStop = False
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.ElevatorModule.My.Resources.Resources.giphy
-        Me.PictureBox1.Location = New System.Drawing.Point(210, 70)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(331, 300)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 6
-        Me.PictureBox1.TabStop = False
-        '
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.Color.DimGray
@@ -131,6 +121,16 @@ Partial Class MainPage
         Me.Button1.TabIndex = 7
         Me.Button1.Text = "E&xit"
         Me.Button1.UseVisualStyleBackColor = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.ElevatorModule.My.Resources.Resources.giphy
+        Me.PictureBox1.Location = New System.Drawing.Point(210, 70)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(331, 300)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 6
+        Me.PictureBox1.TabStop = False
         '
         'MainPage
         '

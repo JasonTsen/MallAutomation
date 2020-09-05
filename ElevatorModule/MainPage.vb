@@ -9,7 +9,7 @@
     End Sub
 
     Private Sub btnAircon_Click(sender As Object, e As EventArgs) Handles btnAircon.Click
-
+        AircondModule.Show()
     End Sub
 
     Private Sub btnLight_Click(sender As Object, e As EventArgs) Handles btnLight.Click
