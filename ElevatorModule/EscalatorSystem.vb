@@ -91,7 +91,7 @@ Public Class EscalatorSyst
         Catch ex As Exception
         End Try
     End Sub
-    Private Sub btnStart_Click(sender As Object, e As EventArgs) Handles btnStart.Click
+    Private Sub btnStart_Click_1(sender As Object, e As EventArgs) Handles btnStart.Click
         Try
             BackgroundWorker1.RunWorkerAsync()
         Catch ex As Exception
@@ -171,7 +171,5 @@ Public Class EscalatorSyst
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
         Me.Close()
     End Sub
-
-
 
 End Class

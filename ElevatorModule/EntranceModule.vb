@@ -10,6 +10,7 @@ Imports System.Windows.Forms
 Imports System.ComponentModel
 
 Public Class EntranceModule
+    Inherits Form
     Private Sub EntranceModule_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CheckForIllegalCrossThreadCalls = False
         Timer1.Enabled = True
@@ -20,13 +21,14 @@ Public Class EntranceModule
         Catch
             MessageBox.Show("Failed to establish Internet connection.")
         End Try
+
     End Sub
 
     Private fcon As New FirebaseConfig() With
-       {
-       .AuthSecret = "qpXxaJ3Ud3RlW6LslKq88v22hG8Eh30qNo0hdcCU",
-       .BasePath = "https://bait2123-202006-05.firebaseio.com/"
-       }
+        {
+        .AuthSecret = "qpXxaJ3Ud3RlW6LslKq88v22hG8Eh30qNo0hdcCU",
+        .BasePath = "https://bait2123-202006-05.firebaseio.com/"
+        }
     Private client As IFirebaseClient
 
     Private Sub btnStart_Click(sender As Object, e As EventArgs) Handles btnStart.Click
@@ -85,13 +87,14 @@ Public Class EntranceModule
     End Function
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        lblTime.Text = "Current Time:  " + fnc_Get_NTP.ToString("yyyyMMdd/HH/mmss")
+        lblTime.Text = "Current Time:  " + fnc_Get_NTP.ToString("yyyy/MM/dd/HH/mmss")
         CheckForIllegalCrossThreadCalls = False
 
-        Dim sec As Long
-        sec = Convert.ToInt32(fnc_Get_NTP.ToString("ss"))
-        sec = sec Mod (60 * 60)
+
         Try
+            Dim sec As Long
+            sec = Convert.ToInt32(fnc_Get_NTP.ToString("ss"))
+            sec = sec Mod (60 * 60)
             If sec.Equals(0) OrElse sec.Equals(10) OrElse sec.Equals(20) OrElse sec.Equals(30) OrElse sec.Equals(40) OrElse sec.Equals(50) Then
                 btnStart.PerformClick()
             End If
@@ -104,8 +107,8 @@ Public Class EntranceModule
 
 
         Try
-            Dim res = client.Get("PI_05_" + fnc_Get_NTP().ToString("yyyyMMdd/HH/mmss") + "/ultra2")
-            Dim res_tempe = client.Get("PI_05_" + fnc_Get_NTP().ToString("yyyyMMdd/HH/mmss") + "/ultra")
+            Dim res = client.Get("PI_05_" + fnc_Get_NTP().ToString("yyyy/MM/dd/HH/mmss") + "/ultra2")
+            Dim res_tempe = client.Get("PI_05_" + fnc_Get_NTP().ToString("yyyy/MM/dd/HH/mmss") + "/ultra")
 
             Dim Body_ultra As String
             Dim Body_temp As String
@@ -151,7 +154,7 @@ Public Class EntranceModule
                     lblDisplay.Text = lcd.Body.ToString
                 End If
 
-
+                lblEntranceRep.Text += Body_ultra.ToString + "       " + Body_temp.ToString + "         " + fnc_Get_NTP.ToString("yyyy/MM/dd/HH/mmss") + vbCrLf
             Else
                 'For double digits value
                 Body_ultra = res.Body.Substring(1, 2)
@@ -162,7 +165,7 @@ Public Class EntranceModule
 
 
                 'customer not nearby
-                If ultra > 30 Then
+                If ultra > 30.0 Then
 
 
                     lblUltra.Text = "Ultra: " + Body_ultra.ToString
@@ -190,6 +193,8 @@ Public Class EntranceModule
                     lblBuzzer.Text = "Buzzer: " + Body_buzz.ToString
                     lblDisplay.Text = lcd.Body.ToString
                 End If
+
+                lblEntranceRep.Text += Body_ultra.ToString + "       " + Body_temp.ToString + "         " + fnc_Get_NTP.ToString("yyyy/MM/dd/HH/mmss") + vbCrLf
             End If
 
         Catch ex As Exception
@@ -205,7 +210,8 @@ Public Class EntranceModule
         t1.Start()
     End Sub
 
-    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
         Me.Close()
     End Sub
+
 End Class
