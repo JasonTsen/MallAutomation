@@ -70,6 +70,8 @@ Public Class LightSenseModule
                     lblMessage.Text = "Light: " + Body.ToString
                 End If
 
+                lblReport.Text += Body.ToString + "       " + lblLight.Text + "         " + lightdata.ToString("yyyyMMdd/HH/mmss") + vbCrLf
+
             Else
 
                 Body = res.Body.Substring(1, 2)
@@ -96,6 +98,7 @@ Public Class LightSenseModule
                 End If
             End If
 
+            lblReport.Text += Body.ToString + "       " + lblLight.Text + "         " + lightdata.ToString("yyyyMMdd/HH/mmss") + vbCrLf
 
         Catch ex As Exception
 
@@ -171,17 +174,18 @@ Public Class LightSenseModule
         starttheLight.Start()
     End Sub
 
-    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        Application.Exit()
-    End Sub
 
     Private Sub btnStop_Click(sender As Object, e As EventArgs) Handles btnStop.Click
-        'lblName.Text = "No Data Get"
-        'lblMessage.Text = "No Data Get"
-        'lblLight.Text = "The Light is Off"
-        'radManual.Checked = True
-        'radAuto.Checked = False
-        'PictureBox1.Image = My.Resources.nolight
-        Application.Restart()
+        lblName.Text = "No Data Get"
+        lblMessage.Text = "No Data Get"
+        lblLight.Text = "The Light is Off"
+        radManual.Checked = True
+        radAuto.Checked = False
+        PictureBox1.Image = My.Resources.nolight
     End Sub
+
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        Me.Close()
+    End Sub
+
 End Class

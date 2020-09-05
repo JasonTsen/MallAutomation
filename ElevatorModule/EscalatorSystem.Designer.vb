@@ -24,7 +24,6 @@ Partial Class EscalatorSyst
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(EscalatorSyst))
-        Me.btnStart = New System.Windows.Forms.Button()
         Me.stopEscalator = New System.Windows.Forms.PictureBox()
         Me.startEscalator = New System.Windows.Forms.PictureBox()
         Me.lblName = New System.Windows.Forms.Label()
@@ -33,31 +32,20 @@ Partial Class EscalatorSyst
         Me.timer = New System.Windows.Forms.Timer(Me.components)
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.lblReport = New System.Windows.Forms.Label()
-        Me.btnClose = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblDesign = New System.Windows.Forms.Label()
+        Me.btnStart = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnClose = New Guna.UI2.WinForms.Guna2Button()
+        Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.stopEscalator, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.startEscalator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'btnStart
-        '
-        Me.btnStart.BackColor = System.Drawing.Color.DimGray
-        Me.btnStart.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnStart.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnStart.Location = New System.Drawing.Point(72, 585)
-        Me.btnStart.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.btnStart.Name = "btnStart"
-        Me.btnStart.Size = New System.Drawing.Size(156, 68)
-        Me.btnStart.TabIndex = 0
-        Me.btnStart.Text = "&Start"
-        Me.btnStart.UseVisualStyleBackColor = False
         '
         'stopEscalator
         '
         Me.stopEscalator.Image = CType(resources.GetObject("stopEscalator.Image"), System.Drawing.Image)
         Me.stopEscalator.Location = New System.Drawing.Point(72, 122)
-        Me.stopEscalator.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.stopEscalator.Margin = New System.Windows.Forms.Padding(4)
         Me.stopEscalator.Name = "stopEscalator"
         Me.stopEscalator.Size = New System.Drawing.Size(456, 290)
         Me.stopEscalator.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -68,7 +56,7 @@ Partial Class EscalatorSyst
         '
         Me.startEscalator.Image = CType(resources.GetObject("startEscalator.Image"), System.Drawing.Image)
         Me.startEscalator.Location = New System.Drawing.Point(72, 122)
-        Me.startEscalator.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.startEscalator.Margin = New System.Windows.Forms.Padding(4)
         Me.startEscalator.Name = "startEscalator"
         Me.startEscalator.Size = New System.Drawing.Size(455, 290)
         Me.startEscalator.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -102,7 +90,7 @@ Partial Class EscalatorSyst
         Me.lblDateTime.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.lblDateTime.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDateTime.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.lblDateTime.Location = New System.Drawing.Point(31, 48)
+        Me.lblDateTime.Location = New System.Drawing.Point(482, 39)
         Me.lblDateTime.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblDateTime.Name = "lblDateTime"
         Me.lblDateTime.Size = New System.Drawing.Size(839, 46)
@@ -127,19 +115,6 @@ Partial Class EscalatorSyst
         Me.lblReport.Size = New System.Drawing.Size(2, 31)
         Me.lblReport.TabIndex = 6
         '
-        'btnClose
-        '
-        Me.btnClose.BackColor = System.Drawing.Color.DimGray
-        Me.btnClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClose.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnClose.Location = New System.Drawing.Point(327, 585)
-        Me.btnClose.Margin = New System.Windows.Forms.Padding(4)
-        Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(156, 68)
-        Me.btnClose.TabIndex = 7
-        Me.btnClose.Text = "&Close"
-        Me.btnClose.UseVisualStyleBackColor = False
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -148,7 +123,7 @@ Partial Class EscalatorSyst
         Me.Label1.Location = New System.Drawing.Point(695, 106)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(240, 36)
+        Me.Label1.Size = New System.Drawing.Size(192, 29)
         Me.Label1.TabIndex = 8
         Me.Label1.Text = "Escalator Report"
         '
@@ -163,24 +138,74 @@ Partial Class EscalatorSyst
         Me.lblDesign.TabIndex = 9
         Me.lblDesign.Text = "Ultra              Buzzer                             DateTime"
         '
+        'btnStart
+        '
+        Me.btnStart.BorderRadius = 20
+        Me.btnStart.CheckedState.Parent = Me.btnStart
+        Me.btnStart.CustomImages.Parent = Me.btnStart
+        Me.btnStart.FillColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(182, Byte), Integer), CType(CType(44, Byte), Integer))
+        Me.btnStart.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnStart.ForeColor = System.Drawing.Color.White
+        Me.btnStart.HoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(87, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(77, Byte), Integer))
+        Me.btnStart.HoverState.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnStart.HoverState.ForeColor = System.Drawing.Color.White
+        Me.btnStart.HoverState.Parent = Me.btnStart
+        Me.btnStart.Location = New System.Drawing.Point(120, 566)
+        Me.btnStart.Name = "btnStart"
+        Me.btnStart.ShadowDecoration.Parent = Me.btnStart
+        Me.btnStart.Size = New System.Drawing.Size(135, 50)
+        Me.btnStart.TabIndex = 13
+        Me.btnStart.Text = "Start"
+        '
+        'btnClose
+        '
+        Me.btnClose.BorderRadius = 20
+        Me.btnClose.CheckedState.Parent = Me.btnClose
+        Me.btnClose.CustomImages.Parent = Me.btnClose
+        Me.btnClose.FillColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(19, Byte), Integer))
+        Me.btnClose.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClose.ForeColor = System.Drawing.Color.White
+        Me.btnClose.HoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(234, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnClose.HoverState.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClose.HoverState.ForeColor = System.Drawing.Color.White
+        Me.btnClose.HoverState.Parent = Me.btnClose
+        Me.btnClose.Location = New System.Drawing.Point(341, 566)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.ShadowDecoration.Parent = Me.btnClose
+        Me.btnClose.Size = New System.Drawing.Size(135, 50)
+        Me.btnClose.TabIndex = 14
+        Me.btnClose.Text = "Close"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label2.Location = New System.Drawing.Point(63, 30)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(397, 55)
+        Me.Label2.TabIndex = 15
+        Me.Label2.Text = "Escalator System"
+        '
         'EscalatorSyst
         '
-        Me.AcceptButton = Me.btnStart
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.ClientSize = New System.Drawing.Size(1376, 1138)
+        Me.ClientSize = New System.Drawing.Size(1334, 637)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.btnClose)
+        Me.Controls.Add(Me.btnStart)
         Me.Controls.Add(Me.lblDesign)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.lblReport)
         Me.Controls.Add(Me.lblDateTime)
         Me.Controls.Add(Me.lblBuzzer)
         Me.Controls.Add(Me.lblName)
         Me.Controls.Add(Me.startEscalator)
         Me.Controls.Add(Me.stopEscalator)
-        Me.Controls.Add(Me.btnStart)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "EscalatorSyst"
         Me.Text = "Escalator System"
         CType(Me.stopEscalator, System.ComponentModel.ISupportInitialize).EndInit()
@@ -189,8 +214,6 @@ Partial Class EscalatorSyst
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents btnStart As Button
     Friend WithEvents stopEscalator As PictureBox
     Friend WithEvents startEscalator As PictureBox
     Friend WithEvents lblName As Label
@@ -199,7 +222,9 @@ Partial Class EscalatorSyst
     Friend WithEvents timer As Timer
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
     Friend WithEvents lblReport As Label
-    Friend WithEvents btnClose As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents lblDesign As Label
+    Friend WithEvents btnStart As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnClose As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents Label2 As Label
 End Class
