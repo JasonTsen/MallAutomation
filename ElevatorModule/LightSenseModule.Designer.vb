@@ -33,10 +33,10 @@ Partial Class LightSenseModule
         Me.lblDateTime = New System.Windows.Forms.Label()
         Me.lblMessage = New System.Windows.Forms.Label()
         Me.btnStart = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -157,18 +157,9 @@ Partial Class LightSenseModule
         Me.btnStart.Text = "&Start"
         Me.btnStart.UseVisualStyleBackColor = False
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.ElevatorModule.My.Resources.Resources.nolight
-        Me.PictureBox1.Location = New System.Drawing.Point(429, 67)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(383, 222)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 15
-        Me.PictureBox1.TabStop = False
-        '
         'timer1
         '
+        Me.timer1.Interval = 1000
         '
         'BackgroundWorker1
         '
@@ -183,6 +174,16 @@ Partial Class LightSenseModule
         Me.Label2.Size = New System.Drawing.Size(313, 55)
         Me.Label2.TabIndex = 22
         Me.Label2.Text = "Light System"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.ElevatorModule.My.Resources.Resources.nolight
+        Me.PictureBox1.Location = New System.Drawing.Point(429, 67)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(383, 222)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 15
+        Me.PictureBox1.TabStop = False
         '
         'LightSenseModule
         '

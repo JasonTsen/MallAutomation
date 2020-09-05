@@ -5,7 +5,7 @@
     End Sub
 
     Private Sub btnEntrance_Click(sender As Object, e As EventArgs) Handles btnEntrance.Click
-
+        EntranceModule.Show()
     End Sub
 
     Private Sub btnAircon_Click(sender As Object, e As EventArgs) Handles btnAircon.Click
