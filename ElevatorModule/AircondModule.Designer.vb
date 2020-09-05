@@ -32,14 +32,14 @@ Partial Class AircondModule
         Me.lblTime = New System.Windows.Forms.Label()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.btnOnOff = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.lblOnOff = New System.Windows.Forms.Label()
-        Me.btnExit = New System.Windows.Forms.Button()
-        Me.btnOFF = New System.Windows.Forms.Button()
         Me.lblReport = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.label = New System.Windows.Forms.Label()
+        Me.btnOnOff = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnOFF = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnExit = New Guna.UI2.WinForms.Guna2Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.fanIcon, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -48,10 +48,10 @@ Partial Class AircondModule
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(297, 25)
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(217, 18)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(208, 31)
+        Me.Label1.Size = New System.Drawing.Size(356, 55)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Air Conditioner"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -79,7 +79,7 @@ Partial Class AircondModule
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.Color.DimGray
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(39, 166)
         Me.Label2.MinimumSize = New System.Drawing.Size(0, 30)
@@ -92,7 +92,7 @@ Partial Class AircondModule
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.BackColor = System.Drawing.Color.DimGray
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(39, 216)
         Me.Label3.MinimumSize = New System.Drawing.Size(0, 30)
@@ -117,7 +117,7 @@ Partial Class AircondModule
         'lblTime
         '
         Me.lblTime.AutoSize = True
-        Me.lblTime.BackColor = System.Drawing.Color.DimGray
+        Me.lblTime.BackColor = System.Drawing.Color.Transparent
         Me.lblTime.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTime.Location = New System.Drawing.Point(114, 216)
         Me.lblTime.MinimumSize = New System.Drawing.Size(0, 30)
@@ -132,21 +132,10 @@ Partial Class AircondModule
         'Timer1
         '
         '
-        'btnOnOff
-        '
-        Me.btnOnOff.BackColor = System.Drawing.Color.DimGray
-        Me.btnOnOff.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnOnOff.Location = New System.Drawing.Point(256, 357)
-        Me.btnOnOff.Name = "btnOnOff"
-        Me.btnOnOff.Size = New System.Drawing.Size(132, 56)
-        Me.btnOnOff.TabIndex = 10
-        Me.btnOnOff.Text = "ON"
-        Me.btnOnOff.UseVisualStyleBackColor = False
-        '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.BackColor = System.Drawing.Color.DimGray
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(39, 266)
         Me.Label4.MinimumSize = New System.Drawing.Size(0, 30)
@@ -159,7 +148,7 @@ Partial Class AircondModule
         'lblOnOff
         '
         Me.lblOnOff.AutoSize = True
-        Me.lblOnOff.BackColor = System.Drawing.Color.DimGray
+        Me.lblOnOff.BackColor = System.Drawing.Color.Transparent
         Me.lblOnOff.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblOnOff.Location = New System.Drawing.Point(120, 266)
         Me.lblOnOff.MinimumSize = New System.Drawing.Size(0, 30)
@@ -167,28 +156,6 @@ Partial Class AircondModule
         Me.lblOnOff.Size = New System.Drawing.Size(0, 30)
         Me.lblOnOff.TabIndex = 12
         Me.lblOnOff.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'btnExit
-        '
-        Me.btnExit.BackColor = System.Drawing.Color.DimGray
-        Me.btnExit.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnExit.Location = New System.Drawing.Point(728, 377)
-        Me.btnExit.Name = "btnExit"
-        Me.btnExit.Size = New System.Drawing.Size(60, 36)
-        Me.btnExit.TabIndex = 13
-        Me.btnExit.Text = "Exit"
-        Me.btnExit.UseVisualStyleBackColor = False
-        '
-        'btnOFF
-        '
-        Me.btnOFF.BackColor = System.Drawing.Color.DimGray
-        Me.btnOFF.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnOFF.Location = New System.Drawing.Point(414, 357)
-        Me.btnOFF.Name = "btnOFF"
-        Me.btnOFF.Size = New System.Drawing.Size(132, 56)
-        Me.btnOFF.TabIndex = 14
-        Me.btnOFF.Text = "OFF"
-        Me.btnOFF.UseVisualStyleBackColor = False
         '
         'lblReport
         '
@@ -221,18 +188,75 @@ Partial Class AircondModule
         Me.label.Text = "Temp      Status       Date and Time"
         Me.label.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
+        'btnOnOff
+        '
+        Me.btnOnOff.BorderRadius = 20
+        Me.btnOnOff.CheckedState.Parent = Me.btnOnOff
+        Me.btnOnOff.CustomImages.Parent = Me.btnOnOff
+        Me.btnOnOff.FillColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(182, Byte), Integer), CType(CType(44, Byte), Integer))
+        Me.btnOnOff.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnOnOff.ForeColor = System.Drawing.Color.White
+        Me.btnOnOff.HoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(87, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(77, Byte), Integer))
+        Me.btnOnOff.HoverState.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnOnOff.HoverState.ForeColor = System.Drawing.Color.White
+        Me.btnOnOff.HoverState.Parent = Me.btnOnOff
+        Me.btnOnOff.Location = New System.Drawing.Point(227, 363)
+        Me.btnOnOff.Name = "btnOnOff"
+        Me.btnOnOff.ShadowDecoration.Parent = Me.btnOnOff
+        Me.btnOnOff.Size = New System.Drawing.Size(135, 50)
+        Me.btnOnOff.TabIndex = 25
+        Me.btnOnOff.Text = "Start"
+        '
+        'btnOFF
+        '
+        Me.btnOFF.BorderRadius = 20
+        Me.btnOFF.CheckedState.Parent = Me.btnOFF
+        Me.btnOFF.CustomImages.Parent = Me.btnOFF
+        Me.btnOFF.FillColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(212, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnOFF.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnOFF.ForeColor = System.Drawing.Color.White
+        Me.btnOFF.HoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(221, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.btnOFF.HoverState.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnOFF.HoverState.ForeColor = System.Drawing.Color.White
+        Me.btnOFF.HoverState.Parent = Me.btnOFF
+        Me.btnOFF.Location = New System.Drawing.Point(403, 363)
+        Me.btnOFF.Name = "btnOFF"
+        Me.btnOFF.ShadowDecoration.Parent = Me.btnOFF
+        Me.btnOFF.Size = New System.Drawing.Size(135, 50)
+        Me.btnOFF.TabIndex = 27
+        Me.btnOFF.Text = "Stop"
+        '
+        'btnExit
+        '
+        Me.btnExit.BorderRadius = 20
+        Me.btnExit.CheckedState.Parent = Me.btnExit
+        Me.btnExit.CustomImages.Parent = Me.btnExit
+        Me.btnExit.FillColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(19, Byte), Integer))
+        Me.btnExit.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnExit.ForeColor = System.Drawing.Color.White
+        Me.btnExit.HoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(234, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnExit.HoverState.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnExit.HoverState.ForeColor = System.Drawing.Color.White
+        Me.btnExit.HoverState.Parent = Me.btnExit
+        Me.btnExit.Location = New System.Drawing.Point(693, 363)
+        Me.btnExit.Name = "btnExit"
+        Me.btnExit.ShadowDecoration.Parent = Me.btnExit
+        Me.btnExit.Size = New System.Drawing.Size(70, 50)
+        Me.btnExit.TabIndex = 28
+        Me.btnExit.Text = "Close"
+        '
         'AircondModule
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Black
-        Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.btnOFF)
+        Me.ClientSize = New System.Drawing.Size(812, 450)
         Me.Controls.Add(Me.btnExit)
+        Me.Controls.Add(Me.btnOFF)
+        Me.Controls.Add(Me.btnOnOff)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.lblOnOff)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.btnOnOff)
         Me.Controls.Add(Me.lblTime)
         Me.Controls.Add(Me.lblTemp)
         Me.Controls.Add(Me.Label3)
@@ -261,12 +285,12 @@ Partial Class AircondModule
     Friend WithEvents lblTime As Label
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
     Friend WithEvents Timer1 As Timer
-    Friend WithEvents btnOnOff As Button
     Friend WithEvents Label4 As Label
     Friend WithEvents lblOnOff As Label
-    Friend WithEvents btnExit As Button
-    Friend WithEvents btnOFF As Button
     Friend WithEvents lblReport As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents label As Label
+    Friend WithEvents btnOnOff As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnOFF As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnExit As Guna.UI2.WinForms.Guna2Button
 End Class

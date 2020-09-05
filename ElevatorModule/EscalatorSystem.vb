@@ -63,7 +63,7 @@ Public Class EscalatorSyst
 
                 End If
 
-                lblReport.Text += resBody.ToString + "       " + lblBuzzer.Text + "         " + fnc_Get_NTP.ToString("yyyyMMdd/HH/mmss") + vbCrLf
+                lblReport.Text += "   " + resBody.ToString + "        " + lblBuzzer.Text + "          " + fnc_Get_NTP.ToString("yyyyMMdd/HH/mmss") + vbCrLf
             Else
 
                 resBody = res.Body.Substring(1, 2)

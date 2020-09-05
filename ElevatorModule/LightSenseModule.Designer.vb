@@ -181,7 +181,7 @@ Partial Class LightSenseModule
         Me.btnClose.HoverState.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClose.HoverState.ForeColor = System.Drawing.Color.White
         Me.btnClose.HoverState.Parent = Me.btnClose
-        Me.btnClose.Location = New System.Drawing.Point(732, 25)
+        Me.btnClose.Location = New System.Drawing.Point(723, 25)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.ShadowDecoration.Parent = Me.btnClose
         Me.btnClose.Size = New System.Drawing.Size(135, 50)
@@ -231,9 +231,9 @@ Partial Class LightSenseModule
         Me.lblReport.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lblReport.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblReport.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.lblReport.Location = New System.Drawing.Point(885, 143)
+        Me.lblReport.Location = New System.Drawing.Point(865, 143)
         Me.lblReport.Name = "lblReport"
-        Me.lblReport.Size = New System.Drawing.Size(456, 285)
+        Me.lblReport.Size = New System.Drawing.Size(491, 285)
         Me.lblReport.TabIndex = 27
         Me.lblReport.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '

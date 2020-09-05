@@ -59,21 +59,21 @@ Partial Class EntranceModule
         Me.GroupBox1.Controls.Add(Me.lblBuzzer)
         Me.GroupBox1.Controls.Add(Me.lblTemp)
         Me.GroupBox1.Controls.Add(Me.lblUltra)
-        Me.GroupBox1.Location = New System.Drawing.Point(56, 92)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
+        Me.GroupBox1.Location = New System.Drawing.Point(75, 113)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
-        Me.GroupBox1.Size = New System.Drawing.Size(489, 228)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.GroupBox1.Size = New System.Drawing.Size(652, 281)
         Me.GroupBox1.TabIndex = 4
         Me.GroupBox1.TabStop = False
         '
         'pic_entrance1
         '
         Me.pic_entrance1.Image = Global.ElevatorModule.My.Resources.Resources.entrance_customer
-        Me.pic_entrance1.Location = New System.Drawing.Point(4, 9)
-        Me.pic_entrance1.Margin = New System.Windows.Forms.Padding(2)
+        Me.pic_entrance1.Location = New System.Drawing.Point(5, 11)
+        Me.pic_entrance1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.pic_entrance1.Name = "pic_entrance1"
-        Me.pic_entrance1.Size = New System.Drawing.Size(298, 219)
+        Me.pic_entrance1.Size = New System.Drawing.Size(397, 270)
         Me.pic_entrance1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.pic_entrance1.TabIndex = 2
         Me.pic_entrance1.TabStop = False
@@ -82,10 +82,10 @@ Partial Class EntranceModule
         'pic_entrance
         '
         Me.pic_entrance.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pic_entrance.Location = New System.Drawing.Point(4, 17)
-        Me.pic_entrance.Margin = New System.Windows.Forms.Padding(2)
+        Me.pic_entrance.Location = New System.Drawing.Point(5, 21)
+        Me.pic_entrance.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.pic_entrance.Name = "pic_entrance"
-        Me.pic_entrance.Size = New System.Drawing.Size(298, 200)
+        Me.pic_entrance.Size = New System.Drawing.Size(397, 246)
         Me.pic_entrance.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.pic_entrance.TabIndex = 5
         Me.pic_entrance.TabStop = False
@@ -93,48 +93,44 @@ Partial Class EntranceModule
         'lblDisplay
         '
         Me.lblDisplay.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblDisplay.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDisplay.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDisplay.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.lblDisplay.Location = New System.Drawing.Point(332, 188)
-        Me.lblDisplay.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblDisplay.Location = New System.Drawing.Point(434, 231)
         Me.lblDisplay.Name = "lblDisplay"
-        Me.lblDisplay.Size = New System.Drawing.Size(139, 25)
+        Me.lblDisplay.Size = New System.Drawing.Size(194, 31)
         Me.lblDisplay.TabIndex = 4
         Me.lblDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblBuzzer
         '
         Me.lblBuzzer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblBuzzer.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblBuzzer.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblBuzzer.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.lblBuzzer.Location = New System.Drawing.Point(334, 78)
-        Me.lblBuzzer.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblBuzzer.Location = New System.Drawing.Point(434, 96)
         Me.lblBuzzer.Name = "lblBuzzer"
-        Me.lblBuzzer.Size = New System.Drawing.Size(137, 26)
+        Me.lblBuzzer.Size = New System.Drawing.Size(194, 32)
         Me.lblBuzzer.TabIndex = 2
         Me.lblBuzzer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblTemp
         '
         Me.lblTemp.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblTemp.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTemp.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTemp.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.lblTemp.Location = New System.Drawing.Point(334, 114)
-        Me.lblTemp.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblTemp.Location = New System.Drawing.Point(434, 140)
         Me.lblTemp.Name = "lblTemp"
-        Me.lblTemp.Size = New System.Drawing.Size(137, 26)
+        Me.lblTemp.Size = New System.Drawing.Size(194, 32)
         Me.lblTemp.TabIndex = 1
         Me.lblTemp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblUltra
         '
         Me.lblUltra.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblUltra.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUltra.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUltra.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.lblUltra.Location = New System.Drawing.Point(334, 43)
-        Me.lblUltra.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblUltra.Location = New System.Drawing.Point(434, 53)
         Me.lblUltra.Name = "lblUltra"
-        Me.lblUltra.Size = New System.Drawing.Size(137, 26)
+        Me.lblUltra.Size = New System.Drawing.Size(194, 32)
         Me.lblUltra.TabIndex = 0
         Me.lblUltra.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -142,10 +138,9 @@ Partial Class EntranceModule
         '
         Me.lblTime.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTime.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.lblTime.Location = New System.Drawing.Point(57, 62)
-        Me.lblTime.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblTime.Location = New System.Drawing.Point(76, 76)
         Me.lblTime.Name = "lblTime"
-        Me.lblTime.Size = New System.Drawing.Size(408, 25)
+        Me.lblTime.Size = New System.Drawing.Size(544, 31)
         Me.lblTime.TabIndex = 6
         Me.lblTime.Text = "Current Time"
         '
@@ -153,12 +148,11 @@ Partial Class EntranceModule
         '
         Me.lblEntranceRep.BackColor = System.Drawing.Color.Transparent
         Me.lblEntranceRep.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblEntranceRep.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEntranceRep.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblEntranceRep.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.lblEntranceRep.Location = New System.Drawing.Point(562, 92)
-        Me.lblEntranceRep.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblEntranceRep.Location = New System.Drawing.Point(749, 113)
         Me.lblEntranceRep.Name = "lblEntranceRep"
-        Me.lblEntranceRep.Size = New System.Drawing.Size(302, 228)
+        Me.lblEntranceRep.Size = New System.Drawing.Size(403, 281)
         Me.lblEntranceRep.TabIndex = 8
         '
         'Label2
@@ -166,10 +160,9 @@ Partial Class EntranceModule
         Me.Label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label2.Location = New System.Drawing.Point(562, 62)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label2.Location = New System.Drawing.Point(749, 76)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(302, 30)
+        Me.Label2.Size = New System.Drawing.Size(403, 37)
         Me.Label2.TabIndex = 9
         Me.Label2.Text = "Ultra      Temperature(°C)    Date/TIme"
         '
@@ -177,10 +170,9 @@ Partial Class EntranceModule
         '
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label1.Location = New System.Drawing.Point(558, 27)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label1.Location = New System.Drawing.Point(744, 33)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(158, 32)
+        Me.Label1.Size = New System.Drawing.Size(211, 39)
         Me.Label1.TabIndex = 10
         Me.Label1.Text = "Entrance Report"
         '
@@ -196,11 +188,11 @@ Partial Class EntranceModule
         Me.btnClose.HoverState.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClose.HoverState.ForeColor = System.Drawing.Color.White
         Me.btnClose.HoverState.Parent = Me.btnClose
-        Me.btnClose.Location = New System.Drawing.Point(257, 332)
-        Me.btnClose.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnClose.Location = New System.Drawing.Point(343, 409)
+        Me.btnClose.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.ShadowDecoration.Parent = Me.btnClose
-        Me.btnClose.Size = New System.Drawing.Size(101, 41)
+        Me.btnClose.Size = New System.Drawing.Size(135, 50)
         Me.btnClose.TabIndex = 27
         Me.btnClose.Text = "Close"
         '
@@ -216,11 +208,11 @@ Partial Class EntranceModule
         Me.btnStart.HoverState.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnStart.HoverState.ForeColor = System.Drawing.Color.White
         Me.btnStart.HoverState.Parent = Me.btnStart
-        Me.btnStart.Location = New System.Drawing.Point(119, 332)
-        Me.btnStart.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnStart.Location = New System.Drawing.Point(159, 409)
+        Me.btnStart.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnStart.Name = "btnStart"
         Me.btnStart.ShadowDecoration.Parent = Me.btnStart
-        Me.btnStart.Size = New System.Drawing.Size(101, 41)
+        Me.btnStart.Size = New System.Drawing.Size(135, 50)
         Me.btnStart.TabIndex = 26
         Me.btnStart.Text = "Start"
         '
@@ -228,19 +220,18 @@ Partial Class EntranceModule
         '
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label3.Location = New System.Drawing.Point(48, 7)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label3.Location = New System.Drawing.Point(64, 9)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(368, 42)
+        Me.Label3.Size = New System.Drawing.Size(491, 52)
         Me.Label3.TabIndex = 28
         Me.Label3.Text = "Entrance System"
         '
         'EntranceModule
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Black
-        Me.ClientSize = New System.Drawing.Size(862, 396)
+        Me.ClientSize = New System.Drawing.Size(1182, 488)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.btnStart)
@@ -249,7 +240,7 @@ Partial Class EntranceModule
         Me.Controls.Add(Me.lblEntranceRep)
         Me.Controls.Add(Me.lblTime)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "EntranceModule"
         Me.Text = "Entrance System"
         Me.GroupBox1.ResumeLayout(False)

@@ -154,7 +154,7 @@ Public Class EntranceModule
                     lblDisplay.Text = lcd.Body.ToString
                 End If
 
-                lblEntranceRep.Text += Body_ultra.ToString + "       " + Body_temp.ToString + "         " + fnc_Get_NTP.ToString("yyyyMMdd/HH/mmss") + vbCrLf
+                lblEntranceRep.Text += Body_ultra.ToString + "                  " + Body_temp.ToString + "     " + fnc_Get_NTP.ToString("yyyyMMdd/HH/mmss") + vbCrLf
             Else
                 'For double digits value
                 Body_ultra = res.Body.Substring(1, 2)
@@ -194,7 +194,7 @@ Public Class EntranceModule
                     lblDisplay.Text = lcd.Body.ToString
                 End If
 
-                lblEntranceRep.Text += Body_ultra.ToString + "       " + Body_temp.ToString + "         " + fnc_Get_NTP.ToString("yyyyMMdd/HH/mmss") + vbCrLf
+                lblEntranceRep.Text += Body_ultra.ToString + "                  " + Body_temp.ToString + "     " + fnc_Get_NTP.ToString("yyyyMMdd/HH/mmss") + vbCrLf
             End If
 
         Catch ex As Exception
