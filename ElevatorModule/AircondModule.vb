@@ -56,13 +56,13 @@ Public Class AircondModule
                     Dim buzzer = client.Set("PI_05_CONTROL/buzzer", "1")
                     fanIcon.Image = My.Resources.fan_gif
                     lblOnOff.Text = "ON"
-                    lblTemp.Text = "Current temperature is Warm"
+                    lblTemp.Text = "Warm"
                 ElseIf ultraTemp > 28.0 Then
                     Dim ledLight = client.Set("PI_05_CONTROL/led", "1")
                     Dim buzzer = client.Set("PI_05_CONTROL/buzzer", "1")
                     fanIcon.Image = My.Resources.fan_gif
                     lblOnOff.Text = "ON"
-                    lblTemp.Text = "Current temperature is Hot"
+                    lblTemp.Text = "Hot"
                 Else
                     Dim buzzer = client.Set("PI_05_CONTROL/led", "0")
                     Dim ledLight = client.Set("PI_05_CONTROL/buzzer", "0")
@@ -70,7 +70,7 @@ Public Class AircondModule
                     lblTemp.Text = "The Aircond is Off"
                     lblOnOff.Text = "OFF"
                 End If
-                lblReport.Text += ultraBody.ToString + "       " + lblOnOff.Text + "         " + fnc_Get_NTP.ToString("yyyyMMdd/HH/mmss") + vbCrLf
+                lblReport.Text += ultraBody.ToString + "         |   " + lblOnOff.Text + "    | " + fnc_Get_NTP.ToString("yyyyMMdd/HH/mmss") + vbCrLf
             Else
                 ultraBody = ultra2.Body.Substring(1, 2)
                 Dim ultraTemp As Integer = Convert.ToInt32(ultraBody)
@@ -80,13 +80,13 @@ Public Class AircondModule
                     Dim buzzer = client.Set("PI_05_CONTROL/buzzer", "1")
                     fanIcon.Image = My.Resources.fan_gif
                     lblOnOff.Text = "ON"
-                    lblTemp.Text = "Current temperature is Warm"
+                    lblTemp.Text = "Warm"
                 ElseIf ultraTemp > 28.0 Then
                     Dim ledLight = client.Set("PI_05_CONTROL/led", "1")
                     Dim buzzer = client.Set("PI_05_CONTROL/buzzer", "1")
                     fanIcon.Image = My.Resources.fan_gif
                     lblOnOff.Text = "ON"
-                    lblTemp.Text = "Current temperature is Hot"
+                    lblTemp.Text = "Hot"
                 Else
                     Dim buzzer = client.Set("PI_05_CONTROL/led", "0")
                     Dim ledLight = client.Set("PI_05_CONTROL/buzzer", "0")
@@ -94,6 +94,7 @@ Public Class AircondModule
                     lblTemp.Text = "The Aircond is Off"
                     lblOnOff.Text = "OFF"
                 End If
+                lblReport.Text += ultraBody.ToString + "         |   " + lblOnOff.Text + "    | " + fnc_Get_NTP.ToString("yyyyMMdd/HH/mmss") + vbCrLf
             End If
         Catch ex As Exception
 

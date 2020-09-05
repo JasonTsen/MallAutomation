@@ -39,6 +39,7 @@ Partial Class AircondModule
         Me.btnOFF = New System.Windows.Forms.Button()
         Me.lblReport = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.label = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.fanIcon, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -80,7 +81,7 @@ Partial Class AircondModule
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.DimGray
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(97, 157)
+        Me.Label2.Location = New System.Drawing.Point(39, 166)
         Me.Label2.MinimumSize = New System.Drawing.Size(0, 30)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(127, 30)
@@ -93,7 +94,7 @@ Partial Class AircondModule
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.DimGray
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(97, 207)
+        Me.Label3.Location = New System.Drawing.Point(39, 216)
         Me.Label3.MinimumSize = New System.Drawing.Size(0, 30)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(62, 30)
@@ -106,7 +107,7 @@ Partial Class AircondModule
         Me.lblTemp.AutoSize = True
         Me.lblTemp.BackColor = System.Drawing.Color.DimGray
         Me.lblTemp.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTemp.Location = New System.Drawing.Point(241, 157)
+        Me.lblTemp.Location = New System.Drawing.Point(183, 166)
         Me.lblTemp.MinimumSize = New System.Drawing.Size(0, 30)
         Me.lblTemp.Name = "lblTemp"
         Me.lblTemp.Size = New System.Drawing.Size(0, 30)
@@ -118,7 +119,7 @@ Partial Class AircondModule
         Me.lblTime.AutoSize = True
         Me.lblTime.BackColor = System.Drawing.Color.DimGray
         Me.lblTime.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTime.Location = New System.Drawing.Point(172, 207)
+        Me.lblTime.Location = New System.Drawing.Point(114, 216)
         Me.lblTime.MinimumSize = New System.Drawing.Size(0, 30)
         Me.lblTime.Name = "lblTime"
         Me.lblTime.Size = New System.Drawing.Size(0, 30)
@@ -147,7 +148,7 @@ Partial Class AircondModule
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.DimGray
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(97, 257)
+        Me.Label4.Location = New System.Drawing.Point(39, 266)
         Me.Label4.MinimumSize = New System.Drawing.Size(0, 30)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(75, 30)
@@ -160,7 +161,7 @@ Partial Class AircondModule
         Me.lblOnOff.AutoSize = True
         Me.lblOnOff.BackColor = System.Drawing.Color.DimGray
         Me.lblOnOff.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblOnOff.Location = New System.Drawing.Point(178, 257)
+        Me.lblOnOff.Location = New System.Drawing.Point(120, 266)
         Me.lblOnOff.MinimumSize = New System.Drawing.Size(0, 30)
         Me.lblOnOff.Name = "lblOnOff"
         Me.lblOnOff.Size = New System.Drawing.Size(0, 30)
@@ -194,18 +195,31 @@ Partial Class AircondModule
         Me.lblReport.AutoSize = True
         Me.lblReport.BackColor = System.Drawing.Color.Black
         Me.lblReport.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblReport.Location = New System.Drawing.Point(3, 30)
+        Me.lblReport.Location = New System.Drawing.Point(3, 34)
         Me.lblReport.Name = "lblReport"
         Me.lblReport.Size = New System.Drawing.Size(0, 20)
         Me.lblReport.TabIndex = 15
         '
         'Panel1
         '
+        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.label)
         Me.Panel1.Controls.Add(Me.lblReport)
-        Me.Panel1.Location = New System.Drawing.Point(414, 157)
+        Me.Panel1.Location = New System.Drawing.Point(373, 157)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(354, 175)
+        Me.Panel1.Size = New System.Drawing.Size(415, 175)
         Me.Panel1.TabIndex = 16
+        '
+        'label
+        '
+        Me.label.AutoSize = True
+        Me.label.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.label.Location = New System.Drawing.Point(3, 0)
+        Me.label.Name = "label"
+        Me.label.Size = New System.Drawing.Size(310, 20)
+        Me.label.TabIndex = 16
+        Me.label.Text = "Temp      Status       Date and Time"
+        Me.label.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'AircondModule
         '
@@ -254,4 +268,5 @@ Partial Class AircondModule
     Friend WithEvents btnOFF As Button
     Friend WithEvents lblReport As Label
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents label As Label
 End Class
