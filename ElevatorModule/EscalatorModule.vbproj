@@ -99,6 +99,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AircondModule.Designer.vb">
+      <DependentUpon>AircondModule.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AircondModule.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Devices.vb" />
     <Compile Include="EntranceModule.Designer.vb">
       <DependentUpon>EntranceModule.vb</DependentUpon>
@@ -143,6 +149,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AircondModule.resx">
+      <DependentUpon>AircondModule.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EntranceModule.resx">
       <DependentUpon>EntranceModule.vb</DependentUpon>
     </EmbeddedResource>
@@ -188,6 +197,9 @@
     <None Include="Resources\entrace.jpg" />
     <None Include="Resources\entrance_customer.png" />
     <None Include="Resources\giphy %281%29.gif" />
+    <None Include="Resources\fan-gif.gif" />
+    <None Include="Resources\icons8-air-conditioner-48.png" />
+    <None Include="Resources\fan-ventilator-propeller-rotor-motion-512.png" />
     <Content Include="Resources\light.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
