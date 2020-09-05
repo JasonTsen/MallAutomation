@@ -122,7 +122,7 @@ Public Class AircondModule
         Dim rdat As Byte() = objSck.Receive(ipAny)
         ' elapsed time (date and time) from 1900/01/01 --- 
         Dim elapsedTotalSec As Long ' elapsed seconds from 1900/01/01 --- 
-        Dim Years As Long
+
         Dim Days As Long    ' days --- 
         Dim HH As Long    ' hours --- 
         Dim MM As Long    ' minutes ---
@@ -153,4 +153,7 @@ Public Class AircondModule
         Return dtTime
     End Function
 
+    Private Sub btnOff_Click(sender As Object, e As EventArgs) Handles btnOff.Click
+
+    End Sub
 End Class
