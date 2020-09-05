@@ -43,6 +43,7 @@ Partial Class LightSenseModule
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.Control
         Me.Label1.Location = New System.Drawing.Point(77, 305)
@@ -54,6 +55,7 @@ Partial Class LightSenseModule
         'radManual
         '
         Me.radManual.AutoSize = True
+        Me.radManual.BackColor = System.Drawing.Color.Transparent
         Me.radManual.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.radManual.ForeColor = System.Drawing.SystemColors.Control
         Me.radManual.Location = New System.Drawing.Point(473, 305)
@@ -62,11 +64,12 @@ Partial Class LightSenseModule
         Me.radManual.TabIndex = 20
         Me.radManual.TabStop = True
         Me.radManual.Text = "Manual Mode"
-        Me.radManual.UseVisualStyleBackColor = True
+        Me.radManual.UseVisualStyleBackColor = False
         '
         'radAuto
         '
         Me.radAuto.AutoSize = True
+        Me.radAuto.BackColor = System.Drawing.Color.Transparent
         Me.radAuto.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.radAuto.ForeColor = System.Drawing.SystemColors.Control
         Me.radAuto.Location = New System.Drawing.Point(654, 305)
@@ -75,7 +78,7 @@ Partial Class LightSenseModule
         Me.radAuto.TabIndex = 19
         Me.radAuto.TabStop = True
         Me.radAuto.Text = "Auto Mode"
-        Me.radAuto.UseVisualStyleBackColor = True
+        Me.radAuto.UseVisualStyleBackColor = False
         '
         'btnBack
         '
@@ -103,7 +106,7 @@ Partial Class LightSenseModule
         '
         'lblName
         '
-        Me.lblName.BackColor = System.Drawing.Color.Black
+        Me.lblName.BackColor = System.Drawing.Color.Transparent
         Me.lblName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblName.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblName.ForeColor = System.Drawing.SystemColors.Control
@@ -114,7 +117,7 @@ Partial Class LightSenseModule
         '
         'lblLight
         '
-        Me.lblLight.BackColor = System.Drawing.Color.Black
+        Me.lblLight.BackColor = System.Drawing.Color.Transparent
         Me.lblLight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblLight.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblLight.ForeColor = System.Drawing.SystemColors.Control
@@ -125,7 +128,7 @@ Partial Class LightSenseModule
         '
         'lblDateTime
         '
-        Me.lblDateTime.BackColor = System.Drawing.Color.Black
+        Me.lblDateTime.BackColor = System.Drawing.Color.Transparent
         Me.lblDateTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblDateTime.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDateTime.ForeColor = System.Drawing.SystemColors.Control
@@ -136,7 +139,7 @@ Partial Class LightSenseModule
         '
         'lblMessage
         '
-        Me.lblMessage.BackColor = System.Drawing.Color.Black
+        Me.lblMessage.BackColor = System.Drawing.Color.Transparent
         Me.lblMessage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblMessage.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblMessage.ForeColor = System.Drawing.SystemColors.Control
@@ -167,6 +170,7 @@ Partial Class LightSenseModule
         'Label2
         '
         Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.2!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.Control
         Me.Label2.Location = New System.Drawing.Point(37, 20)
@@ -177,6 +181,7 @@ Partial Class LightSenseModule
         '
         'PictureBox1
         '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox1.Image = Global.ElevatorModule.My.Resources.Resources.nolight
         Me.PictureBox1.Location = New System.Drawing.Point(429, 67)
         Me.PictureBox1.Name = "PictureBox1"
@@ -189,7 +194,7 @@ Partial Class LightSenseModule
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.Black
+        Me.BackColor = System.Drawing.Color.Silver
         Me.ClientSize = New System.Drawing.Size(887, 483)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)

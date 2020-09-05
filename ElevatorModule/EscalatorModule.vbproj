@@ -184,6 +184,7 @@
   <ItemGroup>
     <None Include="Resources\entrace.jpg" />
     <None Include="Resources\entrance_customer.png" />
+    <None Include="Resources\giphy %281%29.gif" />
     <Content Include="Resources\light.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
