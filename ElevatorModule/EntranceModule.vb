@@ -11,7 +11,7 @@ Imports System.ComponentModel
 
 Public Class EntranceModule
     Inherits Form
-    Private Sub EntranceModule_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub Entrance_Module_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CheckForIllegalCrossThreadCalls = False
         Timer1.Enabled = True
 
@@ -87,7 +87,7 @@ Public Class EntranceModule
     End Function
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        lblTime.Text = "Current Time:  " + fnc_Get_NTP.ToString("yyyy/MM/dd/HH/mmss")
+        lblTime.Text = "Current Time:  " + fnc_Get_NTP.ToString("yyyyMMdd/HH/mmss")
         CheckForIllegalCrossThreadCalls = False
 
 
@@ -107,8 +107,8 @@ Public Class EntranceModule
 
 
         Try
-            Dim res = client.Get("PI_05_" + fnc_Get_NTP().ToString("yyyy/MM/dd/HH/mmss") + "/ultra2")
-            Dim res_tempe = client.Get("PI_05_" + fnc_Get_NTP().ToString("yyyy/MM/dd/HH/mmss") + "/ultra")
+            Dim res = client.Get("PI_05_" + fnc_Get_NTP().ToString("yyyyMMdd/HH/mmss") + "/ultra2")
+            Dim res_tempe = client.Get("PI_05_" + fnc_Get_NTP().ToString("yyyyMMdd/HH/mmss") + "/ultra")
 
             Dim Body_ultra As String
             Dim Body_temp As String
@@ -154,7 +154,7 @@ Public Class EntranceModule
                     lblDisplay.Text = lcd.Body.ToString
                 End If
 
-                lblEntranceRep.Text += Body_ultra.ToString + "       " + Body_temp.ToString + "         " + fnc_Get_NTP.ToString("yyyy/MM/dd/HH/mmss") + vbCrLf
+                lblEntranceRep.Text += Body_ultra.ToString + "       " + Body_temp.ToString + "         " + fnc_Get_NTP.ToString("yyyyMMdd/HH/mmss") + vbCrLf
             Else
                 'For double digits value
                 Body_ultra = res.Body.Substring(1, 2)
@@ -194,7 +194,7 @@ Public Class EntranceModule
                     lblDisplay.Text = lcd.Body.ToString
                 End If
 
-                lblEntranceRep.Text += Body_ultra.ToString + "       " + Body_temp.ToString + "         " + fnc_Get_NTP.ToString("yyyy/MM/dd/HH/mmss") + vbCrLf
+                lblEntranceRep.Text += Body_ultra.ToString + "       " + Body_temp.ToString + "         " + fnc_Get_NTP.ToString("yyyyMMdd/HH/mmss") + vbCrLf
             End If
 
         Catch ex As Exception
@@ -209,9 +209,7 @@ Public Class EntranceModule
 
         t1.Start()
     End Sub
-
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
         Me.Close()
     End Sub
-
 End Class
