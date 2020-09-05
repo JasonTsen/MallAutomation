@@ -115,7 +115,7 @@ Public Class EntranceModule
             Dim Body_buzz As String
             'For single digit's ultra value
 
-            If res.Body.Length <= 5 Then
+            If res.Body.Length <= 5 Or res_tempe.Body.Length <= 5 Then
                 Body_ultra = res.Body.Substring(1, 1)
                 Body_temp = res_tempe.Body.Substring(1, 2)
                 Dim ultra As Integer = Convert.ToInt32(Body_ultra)
@@ -141,7 +141,7 @@ Public Class EntranceModule
                     'customer is nearby
                 Else
                     lblUltra.Text = "Ultra: " + Body_ultra.ToString
-                    lblTemp.Text = "Temperature: " + Body_temp.ToString()
+                    lblTemp.Text = "Temperature: " + Body_temp.ToString() + "°C"
                     Dim buzz = client.Set("PI_05_CONTROL/buzzer", "1")
                     Dim lcd = client.Set("PI_05_CONTROL/lcdtext", "Welcome!")
 
@@ -182,7 +182,7 @@ Public Class EntranceModule
                     'customer is nearby
                 Else
                     lblUltra.Text = "Ultra: " + Body_ultra.ToString
-                    lblTemp.Text = "Temperature: " + Body_temp.ToString()
+                    lblTemp.Text = "Temperature: " + Body_temp.ToString() + "°C"
                     Dim buzz = client.Set("PI_05_CONTROL/buzzer", "1")
                     Dim lcd = client.Set("PI_05_CONTROL/lcdtext", "Welcome!")
 
