@@ -54,7 +54,7 @@ Public Class AircondModule
                 ultraBody = ultra2.Body.Substring(1, 1)
                 Dim ultraTemp As Integer = Convert.ToInt32(ultraBody)
 
-                If ultraTemp < 27.0 Then
+                If ultraTemp > 18.0 And ultraTemp < 27.0 Then
                     Dim ledLight = client.Set("PI_05_CONTROL/led", "1")
                     Dim buzzer = client.Set("PI_05_CONTROL/buzzer", "1")
                     fanIcon.Image = My.Resources.fan_gif
@@ -78,7 +78,7 @@ Public Class AircondModule
                 ultraBody = ultra2.Body.Substring(1, 2)
                 Dim ultraTemp As Integer = Convert.ToInt32(ultraBody)
 
-                If ultraTemp < 27.0 Then
+                If ultraTemp > 18.0 And ultraTemp < 27.0 Then
                     Dim ledLight = client.Set("PI_05_CONTROL/led", "1")
                     Dim buzzer = client.Set("PI_05_CONTROL/buzzer", "1")
                     fanIcon.Image = My.Resources.fan_gif
