@@ -87,11 +87,13 @@ Public Class EntranceModule
     End Function
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        lblTime.Text = "Current Time:  " + fnc_Get_NTP.ToString("yyyyMMdd/HH/mmss")
-        CheckForIllegalCrossThreadCalls = False
+
 
 
         Try
+            lblTime.Text = "Current Time:  " + fnc_Get_NTP.ToString("yyyyMMdd/HH/mmss")
+            CheckForIllegalCrossThreadCalls = False
+
             Dim sec As Long
             sec = Convert.ToInt32(fnc_Get_NTP.ToString("ss"))
             sec = sec Mod (60 * 60)
@@ -107,6 +109,7 @@ Public Class EntranceModule
 
 
         Try
+
             Dim res = client.Get("PI_05_" + fnc_Get_NTP().ToString("yyyyMMdd/HH/mmss") + "/ultra2")
             Dim res_tempe = client.Get("PI_05_" + fnc_Get_NTP().ToString("yyyyMMdd/HH/mmss") + "/ultra")
 
@@ -115,7 +118,7 @@ Public Class EntranceModule
             Dim Body_buzz As String
             'For single digit's ultra value
 
-            If res.Body.Length <= 5 Or res_tempe.Body.Length <= 5 Then
+            If res.Body.Length = 5 And res_tempe.Body.Length = 4 Then
                 Body_ultra = res.Body.Substring(1, 1)
                 Body_temp = res_tempe.Body.Substring(1, 2)
                 Dim ultra As Integer = Convert.ToInt32(Body_ultra)
@@ -127,21 +130,21 @@ Public Class EntranceModule
                 If ultra > 30 Then
 
 
-                    lblUltra.Text = "Ultra: " + Body_ultra.ToString
-                    lblTemp.Text = "Temperature: N/A"
+                    lblUltra.Text = Body_ultra.ToString
+                    lblTemp.Text = "N/A"
                     Dim buzz = client.Set("PI_05_CONTROL/buzzer", "0")
                     pic_entrance.Image = My.Resources.entrace
                     Dim lcd = client.Set("PI_05_CONTROL/lcdtext", "Waiting customer...")
                     Body_buzz = buzz.Body.Substring(1, 1)
                     Dim buzzer As Integer = Convert.ToInt32(Body_buzz)
-                    lblBuzzer.Text = "Buzzer: " + Body_buzz.ToString
+                    lblBuzzer.Text = Body_buzz.ToString
 
                     lblDisplay.Text = lcd.Body.ToString
 
                     'customer is nearby
                 Else
-                    lblUltra.Text = "Ultra: " + Body_ultra.ToString
-                    lblTemp.Text = "Temperature: " + Body_temp.ToString() + "°C"
+                    lblUltra.Text = Body_ultra.ToString
+                    lblTemp.Text = Body_temp.ToString() + "°C"
                     Dim buzz = client.Set("PI_05_CONTROL/buzzer", "1")
                     Dim lcd = client.Set("PI_05_CONTROL/lcdtext", "Welcome!")
 
@@ -150,11 +153,15 @@ Public Class EntranceModule
 
                     Body_buzz = buzz.Body.Substring(1, 1)
                     Dim buzzer As Integer = Convert.ToInt32(Body_buzz)
-                    lblBuzzer.Text = "Buzzer: " + Body_buzz.ToString
+                    lblBuzzer.Text = Body_buzz.ToString
                     lblDisplay.Text = lcd.Body.ToString
                 End If
+                If lblTemp.Text = "N/A" Then
+                    lblEntranceRep.Text += Body_ultra.ToString + "                  " + lblTemp.Text + "   " + fnc_Get_NTP.ToString("yyyyMMdd/HH/mmss") + vbCrLf
+                Else
+                    lblEntranceRep.Text += Body_ultra.ToString + "                  " + Body_temp.ToString + "   " + fnc_Get_NTP.ToString("yyyyMMdd/HH/mmss") + vbCrLf
+                End If
 
-                lblEntranceRep.Text += Body_ultra.ToString + "                  " + Body_temp.ToString + "     " + fnc_Get_NTP.ToString("yyyyMMdd/HH/mmss") + vbCrLf
             Else
                 'For double digits value
                 Body_ultra = res.Body.Substring(1, 2)
@@ -168,33 +175,38 @@ Public Class EntranceModule
                 If ultra > 30.0 Then
 
 
-                    lblUltra.Text = "Ultra: " + Body_ultra.ToString
-                    lblTemp.Text = "Temperature: N/A"
+                    lblUltra.Text = Body_ultra.ToString
+                    lblTemp.Text = "N/A"
                     Dim buzz = client.Set("PI_05_CONTROL/buzzer", "0")
                     pic_entrance.Image = My.Resources.entrace
                     Dim lcd = client.Set("PI_05_CONTROL/lcdtext", "Waiting customer...")
                     Body_buzz = buzz.Body.Substring(1, 1)
                     Dim buzzer As Integer = Convert.ToInt32(Body_buzz)
-                    lblBuzzer.Text = "Buzzer: " + Body_buzz.ToString
+                    lblBuzzer.Text = Body_buzz.ToString
 
                     lblDisplay.Text = lcd.Body.ToString
 
                     'customer is nearby
                 Else
-                    lblUltra.Text = "Ultra: " + Body_ultra.ToString
-                    lblTemp.Text = "Temperature: " + Body_temp.ToString() + "°C"
+                    lblUltra.Text = Body_ultra.ToString
+                    lblTemp.Text = Body_temp.ToString() + "°C"
                     Dim buzz = client.Set("PI_05_CONTROL/buzzer", "1")
                     Dim lcd = client.Set("PI_05_CONTROL/lcdtext", "Welcome!")
+
 
                     pic_entrance.Image = My.Resources.entrance_customer
 
                     Body_buzz = buzz.Body.Substring(1, 1)
                     Dim buzzer As Integer = Convert.ToInt32(Body_buzz)
-                    lblBuzzer.Text = "Buzzer: " + Body_buzz.ToString
+                    lblBuzzer.Text = Body_buzz.ToString
                     lblDisplay.Text = lcd.Body.ToString
                 End If
 
-                lblEntranceRep.Text += Body_ultra.ToString + "                  " + Body_temp.ToString + "     " + fnc_Get_NTP.ToString("yyyyMMdd/HH/mmss") + vbCrLf
+                If lblTemp.Text = "N/A" Then
+                    lblEntranceRep.Text += Body_ultra.ToString + "                  " + lblTemp.Text + "   " + fnc_Get_NTP.ToString("yyyyMMdd/HH/mmss") + vbCrLf
+                Else
+                    lblEntranceRep.Text += Body_ultra.ToString + "                  " + Body_temp.ToString + "   " + fnc_Get_NTP.ToString("yyyyMMdd/HH/mmss") + vbCrLf
+                End If
             End If
 
         Catch ex As Exception
@@ -212,4 +224,6 @@ Public Class EntranceModule
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
         Me.Close()
     End Sub
+
+
 End Class

@@ -162,7 +162,7 @@ Partial Class AircondModule
         Me.lblReport.AutoSize = True
         Me.lblReport.BackColor = System.Drawing.Color.Black
         Me.lblReport.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblReport.Location = New System.Drawing.Point(3, 34)
+        Me.lblReport.Location = New System.Drawing.Point(16, 37)
         Me.lblReport.Name = "lblReport"
         Me.lblReport.Size = New System.Drawing.Size(0, 20)
         Me.lblReport.TabIndex = 15
@@ -174,14 +174,14 @@ Partial Class AircondModule
         Me.Panel1.Controls.Add(Me.lblReport)
         Me.Panel1.Location = New System.Drawing.Point(373, 157)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(415, 175)
+        Me.Panel1.Size = New System.Drawing.Size(415, 281)
         Me.Panel1.TabIndex = 16
         '
         'label
         '
         Me.label.AutoSize = True
         Me.label.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.label.Location = New System.Drawing.Point(3, 0)
+        Me.label.Location = New System.Drawing.Point(16, 3)
         Me.label.Name = "label"
         Me.label.Size = New System.Drawing.Size(310, 20)
         Me.label.TabIndex = 16
@@ -200,7 +200,7 @@ Partial Class AircondModule
         Me.btnOnOff.HoverState.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnOnOff.HoverState.ForeColor = System.Drawing.Color.White
         Me.btnOnOff.HoverState.Parent = Me.btnOnOff
-        Me.btnOnOff.Location = New System.Drawing.Point(227, 363)
+        Me.btnOnOff.Location = New System.Drawing.Point(12, 363)
         Me.btnOnOff.Name = "btnOnOff"
         Me.btnOnOff.ShadowDecoration.Parent = Me.btnOnOff
         Me.btnOnOff.Size = New System.Drawing.Size(135, 50)
@@ -219,7 +219,7 @@ Partial Class AircondModule
         Me.btnOFF.HoverState.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnOFF.HoverState.ForeColor = System.Drawing.Color.White
         Me.btnOFF.HoverState.Parent = Me.btnOFF
-        Me.btnOFF.Location = New System.Drawing.Point(403, 363)
+        Me.btnOFF.Location = New System.Drawing.Point(153, 363)
         Me.btnOFF.Name = "btnOFF"
         Me.btnOFF.ShadowDecoration.Parent = Me.btnOFF
         Me.btnOFF.Size = New System.Drawing.Size(135, 50)
@@ -238,7 +238,7 @@ Partial Class AircondModule
         Me.btnExit.HoverState.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnExit.HoverState.ForeColor = System.Drawing.Color.White
         Me.btnExit.HoverState.Parent = Me.btnExit
-        Me.btnExit.Location = New System.Drawing.Point(693, 363)
+        Me.btnExit.Location = New System.Drawing.Point(294, 363)
         Me.btnExit.Name = "btnExit"
         Me.btnExit.ShadowDecoration.Parent = Me.btnExit
         Me.btnExit.Size = New System.Drawing.Size(70, 50)

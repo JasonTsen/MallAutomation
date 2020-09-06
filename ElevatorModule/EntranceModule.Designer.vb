@@ -39,6 +39,9 @@ Partial Class EntranceModule
         Me.btnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.btnStart = New Guna.UI2.WinForms.Guna2Button()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         CType(Me.pic_entrance1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pic_entrance, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -53,8 +56,11 @@ Partial Class EntranceModule
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label5)
+        Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.pic_entrance1)
         Me.GroupBox1.Controls.Add(Me.pic_entrance)
+        Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.lblDisplay)
         Me.GroupBox1.Controls.Add(Me.lblBuzzer)
         Me.GroupBox1.Controls.Add(Me.lblTemp)
@@ -93,11 +99,11 @@ Partial Class EntranceModule
         'lblDisplay
         '
         Me.lblDisplay.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblDisplay.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDisplay.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDisplay.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.lblDisplay.Location = New System.Drawing.Point(434, 231)
+        Me.lblDisplay.Location = New System.Drawing.Point(422, 231)
         Me.lblDisplay.Name = "lblDisplay"
-        Me.lblDisplay.Size = New System.Drawing.Size(194, 31)
+        Me.lblDisplay.Size = New System.Drawing.Size(208, 31)
         Me.lblDisplay.TabIndex = 4
         Me.lblDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -106,20 +112,20 @@ Partial Class EntranceModule
         Me.lblBuzzer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lblBuzzer.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblBuzzer.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.lblBuzzer.Location = New System.Drawing.Point(434, 96)
+        Me.lblBuzzer.Location = New System.Drawing.Point(541, 96)
         Me.lblBuzzer.Name = "lblBuzzer"
-        Me.lblBuzzer.Size = New System.Drawing.Size(194, 32)
+        Me.lblBuzzer.Size = New System.Drawing.Size(89, 32)
         Me.lblBuzzer.TabIndex = 2
         Me.lblBuzzer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblTemp
         '
         Me.lblTemp.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblTemp.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTemp.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTemp.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.lblTemp.Location = New System.Drawing.Point(434, 140)
+        Me.lblTemp.Location = New System.Drawing.Point(554, 140)
         Me.lblTemp.Name = "lblTemp"
-        Me.lblTemp.Size = New System.Drawing.Size(194, 32)
+        Me.lblTemp.Size = New System.Drawing.Size(76, 32)
         Me.lblTemp.TabIndex = 1
         Me.lblTemp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -128,9 +134,9 @@ Partial Class EntranceModule
         Me.lblUltra.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lblUltra.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUltra.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.lblUltra.Location = New System.Drawing.Point(434, 53)
+        Me.lblUltra.Location = New System.Drawing.Point(541, 53)
         Me.lblUltra.Name = "lblUltra"
-        Me.lblUltra.Size = New System.Drawing.Size(194, 32)
+        Me.lblUltra.Size = New System.Drawing.Size(89, 32)
         Me.lblUltra.TabIndex = 0
         Me.lblUltra.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -164,7 +170,7 @@ Partial Class EntranceModule
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(403, 37)
         Me.Label2.TabIndex = 9
-        Me.Label2.Text = "Ultra      Temperature(°C)    Date/TIme"
+        Me.Label2.Text = "Ultra      Temperature(°C)    Date/Time"
         '
         'Label1
         '
@@ -181,6 +187,7 @@ Partial Class EntranceModule
         Me.btnClose.BorderRadius = 20
         Me.btnClose.CheckedState.Parent = Me.btnClose
         Me.btnClose.CustomImages.Parent = Me.btnClose
+        Me.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnClose.FillColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(19, Byte), Integer))
         Me.btnClose.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClose.ForeColor = System.Drawing.Color.White
@@ -226,12 +233,50 @@ Partial Class EntranceModule
         Me.Label3.TabIndex = 28
         Me.Label3.Text = "Entrance System"
         '
+        'Label4
+        '
+        Me.Label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label4.Location = New System.Drawing.Point(408, 53)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(137, 32)
+        Me.Label4.TabIndex = 6
+        Me.Label4.Text = "Ultra: "
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label5
+        '
+        Me.Label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label5.Location = New System.Drawing.Point(408, 140)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(149, 32)
+        Me.Label5.TabIndex = 29
+        Me.Label5.Text = "Temperature: "
+        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label6
+        '
+        Me.Label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label6.Location = New System.Drawing.Point(408, 96)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(137, 32)
+        Me.Label6.TabIndex = 30
+        Me.Label6.Text = "Buzzer: "
+        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'EntranceModule
         '
+        Me.AcceptButton = Me.btnStart
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Black
-        Me.ClientSize = New System.Drawing.Size(1182, 488)
+        Me.CancelButton = Me.btnClose
+        Me.ClientSize = New System.Drawing.Size(1181, 487)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.btnStart)
@@ -266,4 +311,7 @@ Partial Class EntranceModule
     Friend WithEvents btnClose As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnStart As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Label3 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label6 As Label
 End Class
