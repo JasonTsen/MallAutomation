@@ -245,7 +245,7 @@ Partial Class LightSenseModule
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(500, 38)
         Me.Label4.TabIndex = 28
-        Me.Label4.Text = "Light ( 0 = Off / 1 = On)  Responds of Light  Date/Time"
+        Me.Label4.Text = "Light ( 0 = Off / 1 = On)        Brightness        Date/Time"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'LightSenseModule

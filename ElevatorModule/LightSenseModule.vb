@@ -70,7 +70,7 @@ Public Class LightSenseModule
                     lblMessage.Text = "Light: " + Body.ToString
                 End If
 
-                lblReport.Text += Body.ToString + "          " + lblLight.Text + "         " + lightdata.ToString("yyyyMMdd/HH/mmss") + vbCrLf
+                lblReport.Text += Body.ToString + "          " + lblName.Text + "         " + lightdata.ToString("yyyyMMdd/HH/mmss") + vbCrLf
 
             Else
 
@@ -98,7 +98,7 @@ Public Class LightSenseModule
                 End If
             End If
 
-            lblReport.Text += Body.ToString + "          " + lblLight.Text + "         " + lightdata.ToString("yyyyMMdd/HH/mmss") + vbCrLf
+            lblReport.Text += Body.ToString + "          " + lblName.Text + "         " + lightdata.ToString("yyyyMMdd/HH/mmss") + vbCrLf
 
         Catch ex As Exception
 
